@@ -85,7 +85,7 @@ Route::get('/contact', function () {
 
 ```blade
 <a href="{{ route('contact') }}" 
-   class="milad-nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">
+   class="urca-nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">
     {{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Contact Us' }}
 </a>
 ```
@@ -115,7 +115,7 @@ const map = new google.maps.Map(document.getElementById("map"), {
 const marker = new google.maps.Marker({
     position: { lat: 30.943686, lng: 31.289423 },
     map: map,
-    title: "ميلاد سامي - قطع غيار شاشات التلفزيون"
+    title: "urca - قطع غيار شاشات التلفزيون"
 });
 ```
 
@@ -124,7 +124,7 @@ const marker = new google.maps.Marker({
 | النوع / Type | القيمة / Value |
 |--------------|----------------|
 | الهاتف / Phone | +20 10 01324539 |
-| البريد / Email | miladsami.tv@gmail.com |
+| البريد / Email | urcasami.tv@gmail.com |
 | العنوان / Address | {{ __('app.footer_address') }} |
 | أوقات العمل / Hours | {{ __('app.footer_hours') }} |
 

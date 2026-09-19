@@ -24,7 +24,10 @@ class ContentSeeder extends Seeder
         ];
 
         foreach ($posts as $p) {
-            BlogPost::create($p);
+            BlogPost::updateOrCreate(
+                ['title' => $p['title']],
+                $p
+            );
         }
 
         // ── Downloads ───────────────────────────────────────────────────────
@@ -38,11 +41,14 @@ class ContentSeeder extends Seeder
             ['title'=>'User Manual - HP LaserJet Pro','description'=>'Comprehensive user guide for HP LaserJet Pro Series printers.','category'=>'Manuals','brand'=>'HP','version'=>'1.0','size'=>'12 MB','os'=>'PDF','icon'=>'fa-file-pdf','downloads'=>6780],
             ['title'=>'Troubleshooting Guide - Canon PIXMA','description'=>'Detailed guide for resolving common Canon PIXMA issues.','category'=>'Manuals','brand'=>'Canon','version'=>'2.0','size'=>'8 MB','os'=>'PDF','icon'=>'fa-file-pdf','downloads'=>5120],
             ['title'=>'Logitech Options+','description'=>'Customization software for Logitech mice and keyboards.','category'=>'Software','brand'=>'Logitech','version'=>'1.52.0','size'=>'178 MB','os'=>'Windows 10/11','icon'=>'fa-mouse','downloads'=>18900],
-            ['title'=>'milad Product Catalogue 2026','description'=>'Comprehensive catalogue of all milad products for 2026 with prices and specifications.','category'=>'Catalogues','brand'=>'milad','version'=>'2026','size'=>'24 MB','os'=>'PDF','icon'=>'fa-book','downloads'=>15670],
+            ['title'=>'urca Product Catalogue 2026','description'=>'Comprehensive catalogue of all urca products for 2026 with prices and specifications.','category'=>'Catalogues','brand'=>'urca','version'=>'2026','size'=>'24 MB','os'=>'PDF','icon'=>'fa-book','downloads'=>15670],
         ];
 
         foreach ($downloads as $d) {
-            Download::create($d);
+            Download::updateOrCreate(
+                ['title' => $d['title']],
+                $d
+            );
         }
 
         // ── About Stats ─────────────────────────────────────────────────────
@@ -54,31 +60,40 @@ class ContentSeeder extends Seeder
         ];
 
         foreach ($stats as $s) {
-            AboutStat::create($s);
+            AboutStat::updateOrCreate(
+                ['label' => $s['label']],
+                $s
+            );
         }
 
         // ── About Team ──────────────────────────────────────────────────────
         $team = [
-            ['name'=>'محمد أحمد','role'=>'CEO','role_ar'=>'المدير التنفيذي','bio'=>'15 years of experience in tech and printers','bio_ar'=>'15 سنة خبرة في التقنية والطابعات','sort_order'=>1],
-            ['name'=>'سارة علي','role'=>'Sales Manager','role_ar'=>'مدير المبيعات','bio'=>'Specialist in corporate printing solutions','bio_ar'=>'متخصصة في حلول الطباعة للشركات','sort_order'=>2],
-            ['name'=>'أحمد حسن','role'=>'Technical Support Manager','role_ar'=>'مدير الدعم الفني','bio'=>'HP and Canon certified maintenance engineer','bio_ar'=>'مهندس صيانة معتمد من HP وCanon','sort_order'=>3],
-            ['name'=>'فاطمة محمود','role'=>'Marketing Manager','role_ar'=>'مدير التسويق','bio'=>'Expert in digital marketing and public relations','bio_ar'=>'خبيرة في التسويق الرقمي والعلاقات العامة','sort_order'=>4],
+            ['name'=>'محمد أحمد','role'=>'CEO','role_ar'=>'المدير التنفيذي','bio'=>'15 years of experience in tech and computers','bio_ar'=>'15 سنة خبرة في التقنية وأجهزة الكمبيوتر','sort_order'=>1],
+            ['name'=>'سارة علي','role'=>'Sales Manager','role_ar'=>'مدير المبيعات','bio'=>'Specialist in hardware and peripheral solutions','bio_ar'=>'متخصصة في حلول ملحقات وأجهزة الحواسيب','sort_order'=>2],
+            ['name'=>'أحمد حسن','role'=>'Technical Support Manager','role_ar'=>'مدير الدعم الفني','bio'=>'Certified hardware and gaming tech specialist','bio_ar'=>'أخصائي معتمد في عتاد القيمنق والصوتيات','sort_order'=>3],
+            ['name'=>'فاطمة محمود','role'=>'Marketing Manager','role_ar'=>'مدير التسويق','bio'=>'Expert in digital marketing and tech community','bio_ar'=>'خبيرة في التسويق الرقمي وبناء مجتمع التقنية','sort_order'=>4],
         ];
 
         foreach ($team as $t) {
-            AboutTeam::create($t);
+            AboutTeam::updateOrCreate(
+                ['name' => $t['name']],
+                $t
+            );
         }
 
         // ── About Values ────────────────────────────────────────────────────
         $values = [
-            ['title'=>'Quality','title_ar'=>'الجودة','description'=>"We only offer genuine products from the world's top brands.",'description_ar'=>'نقدم فقط منتجات أصلية من أفضل العلامات التجارية العالمية.','icon'=>'fa-star','sort_order'=>1],
-            ['title'=>'Trust','title_ar'=>'الثقة','description'=>'We build long-term relationships grounded in transparency and integrity.','description_ar'=>'نبني علاقات طويلة الأمد مبنية على الشفافية والنزاهة.','icon'=>'fa-handshake','sort_order'=>2],
-            ['title'=>'Innovation','title_ar'=>'الابتكار','description'=>"We stay ahead of the curve and bring cutting-edge solutions to our customers.",'description_ar'=>'نواكب أحدث التطورات ونقدم حلولاً متطورة لعملائنا.','icon'=>'fa-lightbulb','sort_order'=>3],
-            ['title'=>'Support','title_ar'=>'الدعم','description'=>'Our technical team is available around the clock to help you whenever you need.','description_ar'=>'فريقنا التقني متاح على مدار الساعة لمساعدتك في أي وقت.','icon'=>'fa-headset','sort_order'=>4],
+            ['title'=>'Quality','title_ar'=>'الجودة الأصلية','description'=>"We only offer genuine products from the world's top brands.",'description_ar'=>'نقدم فقط منتجات أصلية من أفضل العلامات التجارية العالمية.','icon'=>'fa-star','sort_order'=>1],
+            ['title'=>'Trust','title_ar'=>'الثقة والضمان','description'=>'We build long-term relationships grounded in transparency and integrity.','description_ar'=>'نبني علاقات طويلة الأمد مبنية على الشفافية والضمان الحقيقي.','icon'=>'fa-handshake','sort_order'=>2],
+            ['title'=>'Innovation','title_ar'=>'أحدث التقنيات','description'=>"We stay ahead of the curve and bring cutting-edge solutions to our customers.",'description_ar'=>'نواكب أحدث التطورات ونقدم حلولاً متطورة لعملائنا.','icon'=>'fa-lightbulb','sort_order'=>3],
+            ['title'=>'Support','title_ar'=>'الدعم المتواصل','description'=>'Our technical team is available around the clock to help you whenever you need.','description_ar'=>'فريقنا التقني متاح على مدار الساعة لمساعدتك في أي وقت.','icon'=>'fa-headset','sort_order'=>4],
         ];
 
         foreach ($values as $v) {
-            AboutValue::create($v);
+            AboutValue::updateOrCreate(
+                ['title' => $v['title']],
+                $v
+            );
         }
     }
 }

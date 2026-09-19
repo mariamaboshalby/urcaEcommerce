@@ -69,7 +69,7 @@ class CheckoutController extends Controller
         }
 
         session()->forget('cart');
-        Cookie::queue(Cookie::forget('milad_cart'));
+        Cookie::queue(Cookie::forget('urca_cart'));
 
         return redirect()->route('checkout.success', $order->order_number);
     }
@@ -131,7 +131,7 @@ class CheckoutController extends Controller
 
         // Clear cart from session and cookie
         session()->forget('cart');
-        Cookie::queue(Cookie::forget('milad_cart'));
+        Cookie::queue(Cookie::forget('urca_cart'));
 
         // Save address & city to user profile for future auto-checkout
         $user = Auth::user();

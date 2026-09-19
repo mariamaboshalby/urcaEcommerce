@@ -57,7 +57,7 @@
 📱 معلومات الاتصال / Contact Info:
 
    📞 الهاتف: +20 10 01324539
-   📧 البريد: miladsami.tv@gmail.com
+   📧 البريد: urcasami.tv@gmail.com
    📍 العنوان: شبين الكوم، المنوفية، مصر
    🕐 أوقات العمل: السبت - الخميس: 9 ص - 6 م
 
@@ -85,7 +85,7 @@
 2. أضف في القائمة الرئيسية:
 
    <a href="{{ route('contact') }}" 
-      class="milad-nav-link">
+      class="urca-nav-link">
        اتصل بنا
    </a>
 

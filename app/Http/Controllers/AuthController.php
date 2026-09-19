@@ -109,7 +109,7 @@ class AuthController extends Controller
         $sessionCart = session()->get('cart', []);
 
         if (empty($sessionCart)) {
-            $cookieCart = json_decode($request->cookie('milad_cart', '[]'), true);
+            $cookieCart = json_decode($request->cookie('urca_cart', '[]'), true);
             if (!empty($cookieCart)) {
                 session()->put('cart', $cookieCart);
             }

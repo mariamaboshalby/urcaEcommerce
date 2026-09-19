@@ -1,5 +1,5 @@
 /**
- * milad Admin JS
+ * urca Admin JS
  */
 (function () {
   'use strict';

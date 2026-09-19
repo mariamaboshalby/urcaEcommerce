@@ -1,6 +1,6 @@
 ﻿@extends('layouts.app')
 
-@section('title', 'سلة التسوق - ميلاد سامي')
+@section('title', 'سلة التسوق - urca')
 
 @section('content')
 
@@ -213,15 +213,19 @@
             var btn = e.target.closest('.cart-item-remove');
             if (!btn) return;
             var id = btn.dataset.id;
-            postJson('{{ route('cart.remove') }}', { product_id: id })
-                .then(function() { location.reload(); });
+            postJson('{{ route('cart.remove') }}', {
+                    product_id: id
+                })
+                .then(function() {
+                    location.reload();
+                });
         });
 
         // Update qty (+/-)
         document.addEventListener('click', function(e) {
             var btn = e.target.closest('.cart-qty-plus, .cart-qty-minus');
             if (!btn) return;
-            var id  = btn.dataset.id;
+            var id = btn.dataset.id;
             var row = btn.closest('.cart-item');
             var qtyEl = row.querySelector('.cart-qty-val');
             var qty = parseInt(qtyEl.textContent);
@@ -230,9 +234,16 @@
             else qty--;
             if (qty < 1) qty = 1;
 
-            postJson('{{ route('cart.update') }}', { product_id: id, quantity: qty })
-                .then(function(r) { return r.json(); })
-                .then(function(res) { if (res.success) location.reload(); });
+            postJson('{{ route('cart.update') }}', {
+                    product_id: id,
+                    quantity: qty
+                })
+                .then(function(r) {
+                    return r.json();
+                })
+                .then(function(res) {
+                    if (res.success) location.reload();
+                });
         });
 
         // Clear cart
@@ -241,7 +252,9 @@
             clearBtn.addEventListener('click', function() {
                 if (!confirm('{{ __('app.cart_clear_confirm') }}')) return;
                 postJson('{{ route('cart.clear') }}', {})
-                    .then(function() { location.reload(); });
+                    .then(function() {
+                        location.reload();
+                    });
             });
         }
 
@@ -251,12 +264,14 @@
         if (checkoutBtn) {
             checkoutBtn.addEventListener('click', function() {
                 fetch('{{ route('cart.items') }}')
-                    .then(function(r) { return r.json(); })
+                    .then(function(r) {
+                        return r.json();
+                    })
                     .then(function(data) {
                         if (data.items && data.items.length > 0) {
                             var expires = new Date();
                             expires.setDate(expires.getDate() + 10);
-                            document.cookie = 'milad_cart=' + encodeURIComponent(JSON.stringify(
+                            document.cookie = 'urca_cart=' + encodeURIComponent(JSON.stringify(
                                 data.items.reduce(function(acc, item) {
                                     acc[item.id] = {
                                         id: item.id,

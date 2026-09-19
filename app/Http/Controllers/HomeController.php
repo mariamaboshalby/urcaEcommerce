@@ -17,6 +17,13 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Auto-refresh products from API if configured and stale (> 15 minutes)
+        try {
+            app(\App\Services\ExternalProductSyncService::class)->syncIfStale(15);
+        } catch (\Throwable $e) {
+            // Silently continue so home page always loads even if external API is slow
+        }
+
         $mapProduct = fn($p) => [
             'id'          => $p->id,
             'name'        => $p->name,
@@ -25,8 +32,8 @@ class HomeController extends Controller
             'old_price'   => $p->old_price,
             'badge'       => $p->badge,
             'badge_color' => $p->badge_color,
-            'image_url'   => $p->getFirstMediaUrl('product-images', 'card'),
-            'image'       => $p->getFirstMediaUrl('product-images', 'card'),
+            'image_url'   => $p->getFirstMediaUrl('product-images', 'card') ?: ($p->image ?? ''),
+            'image'       => $p->getFirstMediaUrl('product-images', 'card') ?: ($p->image ?? ''),
             'rating'      => $p->rating,
             'reviews'     => $p->reviews ?? 0,
             'description' => $p->description,

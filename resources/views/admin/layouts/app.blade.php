@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', __('app.dashboard')) — ميلاد سامي</title>
+    <title>@yield('title', __('app.dashboard')) — urca</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
@@ -38,25 +38,27 @@
                 margin-right: auto;
                 margin-left: 0;
             }
-/* ── Topbar ── */
-.adm-topbar {
-  background: #fff;
-  height: var(--topbar-h);
-  border-bottom: 1px solid var(--ink-200);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.75rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--sh-sm);
-  flex-shrink: 0;
-}
+
+            /* ── Topbar ── */
+            .adm-topbar {
+                background: #fff;
+                height: var(--topbar-h);
+                border-bottom: 1px solid var(--ink-200);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 1.75rem;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                box-shadow: var(--sh-sm);
+                flex-shrink: 0;
+            }
+
             .adm-topbar-left {
                 display: flex;
-  align-items: center;
-  gap: 1rem;
+                align-items: center;
+                gap: 1rem;
             }
 
             .adm-breadcrumb i.fa-chevron-left {
@@ -91,8 +93,8 @@
         <!-- Logo -->
         <div class="adm-sidebar-head">
             <a href="{{ route('admin.dashboard') }}" class="adm-logo">
-                <img src="{{ asset('images/milad_logo.png') }}" alt="ميلاد سامي" class="adm-logo-img"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
+                <img src="{{ asset('images/urca_logo.png') }}" alt="urca" class="adm-logo-img"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
                 <span style="display:none;align-items:center;gap:6px;font-weight:900;font-size:1rem;color:#030f1f;">
                     <i class="fas fa-tv" style="color:#051836;"></i> ميلاد<span style="color:#051836;">سامي</span>
                 </span>
@@ -181,22 +183,23 @@
                     class="adm-nav-item {{ request()->routeIs('admin.testimonials.*') ? 'is-active' : '' }}">
                     <span class="adm-nav-icon"><i class="fas fa-star"></i></span>
                     <span>{{ __('app.manage_testimonials') }}</span>
-                    <span class="adm-nav-count">{{ \App\Models\Testimonial::where('is_approved', false)->count() }}</span>
+                    <span
+                        class="adm-nav-count">{{ \App\Models\Testimonial::where('is_approved', false)->count() }}</span>
                 </a>
                 <a href="{{ route('admin.brands.index') }}"
                     class="adm-nav-item {{ request()->routeIs('admin.brands.*') ? 'is-active' : '' }}">
                     <span class="adm-nav-icon"><i class="fas fa-copyright"></i></span>
-                    <span>Brands</span>
+                    <span>{{ app()->getLocale() === 'ar' ? 'العلامات التجارية' : 'Brands' }}</span>
                 </a>
                 <a href="{{ route('admin.faqs.index') }}"
                     class="adm-nav-item {{ request()->routeIs('admin.faqs.*') ? 'is-active' : '' }}">
                     <span class="adm-nav-icon"><i class="fas fa-question-circle"></i></span>
-                    <span>FAQs</span>
+                    <span>{{ app()->getLocale() === 'ar' ? 'الأسئلة الشائعة' : 'FAQs' }}</span>
                 </a>
                 <a href="{{ route('admin.settings.index') }}"
                     class="adm-nav-item {{ request()->routeIs('admin.settings.*') ? 'is-active' : '' }}">
-                    <span class="adm-nav-icon"><i class="fas fa-cogs"></i></span>
-                    <span>Home Settings</span>
+                    <span class="adm-nav-icon"><i class="fas fa-sliders-h"></i></span>
+                    <span>{{ app()->getLocale() === 'ar' ? 'إعدادات الرئيسية' : 'Home Settings' }}</span>
                 </a>
             </div>
 
@@ -248,7 +251,7 @@
                     </nav>
                 </div>
             </div>
-            <div class="adm-topbar-left" >
+            <div class="adm-topbar-left">
                 <!-- Language Switcher -->
                 <a href="{{ route('lang.switch', app()->getLocale() === 'ar' ? 'en' : 'ar') }}"
                     class="adm-topbar-btn" title="{{ __('app.language') }}"

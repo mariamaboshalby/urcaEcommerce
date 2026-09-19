@@ -1,5 +1,5 @@
 /**
- * milad - 3D Printer Loading Animation
+ * urca - 3D Printer Loading Animation
  * Shows a 3D printer animation on page load
  */
 

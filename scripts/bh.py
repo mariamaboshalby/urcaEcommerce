@@ -7,7 +7,7 @@ cb = chr(125)
 
 home = f"""
 {at}extends({q}layouts.app{q})
-{at}section({q}title{q}, {q}milad - الوجهة الاولى للطابعات والاكسسوارات التقنية{q})
+{at}section({q}title{q}, {q}urca - الوجهة الاولى للطابعات والاكسسوارات التقنية{q})
 
 {at}push({q}styles{q})
 <link rel="stylesheet" href="{ob}{ob} asset({q}css/printer-loader.css{q}) {cb}{cb}">

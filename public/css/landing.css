@@ -1,5 +1,5 @@
 /* ==========================================================================
-   milad Landing Page Styles - Premium Design (Light & Blue)
+   urca Landing Page Styles - Premium Design (Light & Blue)
    ========================================================================== */
 
 :root {
@@ -91,7 +91,7 @@ p { line-height: 1.6; color: var(--text-muted); }
 .btn-block { display: block; width: 100%; }
 
 /* Navbar */
-.milad-navbar {
+.urca-navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -101,7 +101,7 @@ p { line-height: 1.6; color: var(--text-muted); }
     transition: var(--transition);
 }
 
-.milad-navbar.scrolled {
+.urca-navbar.scrolled {
     padding: 1rem 0;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
@@ -399,7 +399,7 @@ p { line-height: 1.6; color: var(--text-muted); }
 }
 
 /* Footer */
-.milad-footer {
+.urca-footer {
     text-align: center;
     padding: 2rem;
     background: var(--bg-darker);

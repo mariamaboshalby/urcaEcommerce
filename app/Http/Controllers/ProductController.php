@@ -38,6 +38,13 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        // Auto-refresh products from API if configured and stale (> 15 minutes)
+        try {
+            app(\App\Services\ExternalProductSyncService::class)->syncIfStale(15);
+        } catch (\Throwable $e) {
+            // Silently continue so product catalog always loads even if external API is slow
+        }
+
         $category = $request->get('category', 'all');
         $sort     = $request->get('sort', 'default');
         $search   = $request->filled('search') ? trim($request->search) : null;

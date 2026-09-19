@@ -1,5 +1,5 @@
 /* ========================================================================
-   milad E-Commerce — Complete Redesign 2026
+   urca E-Commerce — Complete Redesign 2026
    Clean · Modern · Professional
    ======================================================================== */
 
@@ -921,7 +921,7 @@ p  { color:var(--ink-600); margin-bottom:.75rem; }
 
 
 /* ========================================================================
-   milad Premium Navbar & Footer  2026
+   urca Premium Navbar & Footer  2026
    ======================================================================== */
 
 /* Switch body font to Inter for English layout */
@@ -930,12 +930,12 @@ body {
 }
 
 /*  Top Bar  */
-.milad-topbar {
+.urca-topbar {
   background: #0F172A;
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
-.milad-social-icon {
+.urca-social-icon {
   width: 28px;
   height: 28px;
   display: inline-flex;
@@ -949,23 +949,23 @@ body {
   text-decoration: none;
 }
 
-.milad-social-icon:hover {
+.urca-social-icon:hover {
   background: #2563EB;
   color: #fff;
   transform: translateY(-2px);
 }
 
 /*  Main Navbar  */
-.milad-navbar {
+.urca-navbar {
   background: #fff;
   border-bottom: 1px solid #E2E8F0;
   box-shadow: 0 2px 20px rgba(0,0,0,.06);
   z-index: 1000;
 }
 
-.milad-brand { text-decoration: none; }
+.urca-brand { text-decoration: none; }
 
-.milad-logo-img {
+.urca-logo-img {
   height: 46px;
   width: auto;
   max-width: 160px;
@@ -973,7 +973,7 @@ body {
 }
 
 /* Nav Links */
-.milad-nav-link {
+.urca-nav-link {
   display: inline-flex;
   align-items: center;
   padding: .5rem .9rem;
@@ -987,25 +987,25 @@ body {
   letter-spacing: -.01em;
 }
 
-.milad-nav-link:hover,
-.milad-nav-link.active {
+.urca-nav-link:hover,
+.urca-nav-link.active {
   background: #EFF6FF;
   color: #2563EB;
 }
 
-.milad-nav-link.active { font-weight: 700; }
+.urca-nav-link.active { font-weight: 700; }
 
-.milad-arrow {
+.urca-arrow {
   font-size: .6rem;
   transition: transform .2s ease;
 }
 
 /* Dropdown */
-.milad-dropdown { position: relative; }
+.urca-dropdown { position: relative; }
 
-.milad-dropdown:hover .milad-arrow { transform: rotate(180deg); }
+.urca-dropdown:hover .urca-arrow { transform: rotate(180deg); }
 
-.milad-mega-menu {
+.urca-mega-menu {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
@@ -1021,19 +1021,19 @@ body {
   z-index: 200;
 }
 
-.milad-dropdown:hover .milad-mega-menu {
+.urca-dropdown:hover .urca-mega-menu {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 
-.milad-mega-inner {
+.urca-mega-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
-.milad-mega-heading {
+.urca-mega-heading {
   font-size: .8125rem;
   font-weight: 700;
   color: #0F172A;
@@ -1047,9 +1047,9 @@ body {
   gap: .4rem;
 }
 
-.milad-mega-heading i { color: #2563EB; }
+.urca-mega-heading i { color: #2563EB; }
 
-.milad-mega-col a {
+.urca-mega-col a {
   display: block;
   padding: .3rem 0;
   color: #475569;
@@ -1058,13 +1058,13 @@ body {
   transition: all .2s ease;
 }
 
-.milad-mega-col a:hover {
+.urca-mega-col a:hover {
   color: #2563EB;
   padding-left: .375rem;
 }
 
 /* Icon Buttons */
-.milad-icon-btn {
+.urca-icon-btn {
   width: 40px;
   height: 40px;
   display: inline-flex;
@@ -1081,7 +1081,7 @@ body {
   flex-shrink: 0;
 }
 
-.milad-icon-btn:hover {
+.urca-icon-btn:hover {
   background: #2563EB;
   color: #fff;
   transform: translateY(-2px);
@@ -1089,7 +1089,7 @@ body {
 }
 
 /* Cart Badge */
-.milad-cart-badge {
+.urca-cart-badge {
   position: absolute;
   top: -4px;
   right: -4px;
@@ -1107,25 +1107,25 @@ body {
 }
 
 /* Search */
-.milad-search-wrap {
+.urca-search-wrap {
   overflow: hidden;
   max-width: 0;
   opacity: 0;
   transition: max-width .35s ease, opacity .35s ease;
 }
 
-.milad-search-wrap.open {
+.urca-search-wrap.open {
   max-width: 260px;
   opacity: 1;
 }
 
-.milad-search-form {
+.urca-search-form {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.milad-search-form input {
+.urca-search-form input {
   width: 240px;
   padding: .55rem 2.75rem .55rem 1rem;
   border: 2px solid #E2E8F0;
@@ -1136,14 +1136,14 @@ body {
   transition: all .2s ease;
 }
 
-.milad-search-form input:focus {
+.urca-search-form input:focus {
   outline: none;
   border-color: #2563EB;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(37,99,235,.1);
 }
 
-.milad-search-form button {
+.urca-search-form button {
   position: absolute;
   right: .4rem;
   top: 50%;
@@ -1162,10 +1162,10 @@ body {
   transition: background .2s ease;
 }
 
-.milad-search-form button:hover { background: #1E3A8A; }
+.urca-search-form button:hover { background: #1E3A8A; }
 
 /* Hamburger */
-.milad-hamburger {
+.urca-hamburger {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1180,7 +1180,7 @@ body {
   flex-shrink: 0;
 }
 
-.milad-hamburger span {
+.urca-hamburger span {
   width: 20px;
   height: 2px;
   background: #334155;
@@ -1190,16 +1190,16 @@ body {
 }
 
 /* Mobile Menu */
-.milad-mobile-menu {
+.urca-mobile-menu {
   display: none;
   flex-direction: column;
   padding: .75rem 0 1rem;
   border-top: 1px solid #F1F5F9;
 }
 
-.milad-mobile-menu.open { display: flex; }
+.urca-mobile-menu.open { display: flex; }
 
-.milad-mobile-link {
+.urca-mobile-link {
   padding: .75rem 1rem;
   color: #334155;
   font-weight: 600;
@@ -1209,29 +1209,29 @@ body {
   transition: all .2s ease;
 }
 
-.milad-mobile-link:hover,
-.milad-mobile-link.active {
+.urca-mobile-link:hover,
+.urca-mobile-link.active {
   background: #EFF6FF;
   color: #2563EB;
 }
 
 /*  Footer  */
-.milad-footer {
+.urca-footer {
   background: #0F172A;
   color: #94A3B8;
   margin-top: 5rem;
 }
 
-.milad-footer-top { padding: 4rem 0 2.5rem; }
+.urca-footer-top { padding: 4rem 0 2.5rem; }
 
-.milad-footer-logo {
+.urca-footer-logo {
   height: 44px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
-.milad-footer-heading {
+.urca-footer-heading {
   color: #fff;
   font-weight: 700;
   font-size: .8125rem;
@@ -1240,11 +1240,11 @@ body {
   margin-bottom: 1.25rem;
 }
 
-.milad-footer-links { margin: 0; padding: 0; }
+.urca-footer-links { margin: 0; padding: 0; }
 
-.milad-footer-links li { margin-bottom: .625rem; }
+.urca-footer-links li { margin-bottom: .625rem; }
 
-.milad-footer-links a {
+.urca-footer-links a {
   color: #64748B;
   font-size: .9rem;
   text-decoration: none;
@@ -1254,14 +1254,14 @@ body {
   gap: .375rem;
 }
 
-.milad-footer-links a:hover {
+.urca-footer-links a:hover {
   color: #3B82F6;
   padding-left: .25rem;
 }
 
-.milad-footer-contact { margin: 0; padding: 0; }
+.urca-footer-contact { margin: 0; padding: 0; }
 
-.milad-footer-contact li {
+.urca-footer-contact li {
   display: flex;
   align-items: flex-start;
   gap: .75rem;
@@ -1270,13 +1270,13 @@ body {
   font-size: .9rem;
 }
 
-.milad-footer-contact li i {
+.urca-footer-contact li i {
   margin-top: .15rem;
   flex-shrink: 0;
   width: 14px;
 }
 
-.milad-footer-social {
+.urca-footer-social {
   width: 36px;
   height: 36px;
   display: inline-flex;
@@ -1290,20 +1290,20 @@ body {
   transition: all .2s ease;
 }
 
-.milad-footer-social:hover {
+.urca-footer-social:hover {
   background: #2563EB;
   color: #fff;
   transform: translateY(-3px);
 }
 
-.milad-newsletter-form {
+.urca-newsletter-form {
   display: flex;
   border-radius: 9999px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.12);
 }
 
-.milad-newsletter-form input {
+.urca-newsletter-form input {
   flex: 1;
   padding: .625rem 1rem;
   background: rgba(255,255,255,.07);
@@ -1314,10 +1314,10 @@ body {
   min-width: 0;
 }
 
-.milad-newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
-.milad-newsletter-form input:focus { outline: none; background: rgba(255,255,255,.1); }
+.urca-newsletter-form input::placeholder { color: rgba(255,255,255,.35); }
+.urca-newsletter-form input:focus { outline: none; background: rgba(255,255,255,.1); }
 
-.milad-newsletter-form button {
+.urca-newsletter-form button {
   padding: .625rem 1.125rem;
   background: #2563EB;
   color: #fff;
@@ -1328,37 +1328,37 @@ body {
   flex-shrink: 0;
 }
 
-.milad-newsletter-form button:hover { background: #1D4ED8; }
+.urca-newsletter-form button:hover { background: #1D4ED8; }
 
-.milad-footer-bottom {
+.urca-footer-bottom {
   border-top: 1px solid rgba(255,255,255,.06);
   padding: 1.25rem 0;
 }
 
 /*  Responsive  */
 @media (max-width: 1024px) {
-  .milad-mega-menu { min-width: 480px; }
-  .milad-mega-inner { grid-template-columns: repeat(2, 1fr); }
+  .urca-mega-menu { min-width: 480px; }
+  .urca-mega-inner { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 992px) {
-  .milad-mega-menu { display: none !important; }
+  .urca-mega-menu { display: none !important; }
 }
 
 @media (max-width: 768px) {
-  .milad-logo-img { height: 38px; }
-  .milad-footer-top { padding: 2.5rem 0 1.5rem; }
+  .urca-logo-img { height: 38px; }
+  .urca-footer-top { padding: 2.5rem 0 1.5rem; }
 }
 
 /* ── Brand Tagline ── */
-.milad-brand {
+.urca-brand {
   display: flex;
   flex-direction: column;
   gap: 2px;
   text-decoration: none;
 }
 
-.milad-tagline {
+.urca-tagline {
   font-size: .65rem;
   font-weight: 600;
   color: #64748B;
@@ -1385,7 +1385,7 @@ body {
 /* ========================================================================
    Bottom Navigation Bar — Mobile Only
    ======================================================================== */
-.milad-bottom-nav {
+.urca-bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1405,12 +1405,12 @@ body {
 @media (max-width: 991px) {
   body { padding-bottom: 64px; }
   /* Hide the top hamburger + mobile menu on small screens — bottom nav replaces it */
-  .milad-hamburger { display: none !important; }
-  .milad-mobile-menu { display: none !important; }
+  .urca-hamburger { display: none !important; }
+  .urca-mobile-menu { display: none !important; }
 }
 
 /* Regular nav item */
-.milad-bn-item {
+.urca-bn-item {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1427,26 +1427,26 @@ body {
   position: relative;
 }
 
-.milad-bn-item i {
+.urca-bn-item i {
   font-size: 1.25rem;
   transition: transform .2s ease, color .2s ease;
 }
 
-.milad-bn-item span {
+.urca-bn-item span {
   line-height: 1;
 }
 
-.milad-bn-item:hover,
-.milad-bn-item.active {
+.urca-bn-item:hover,
+.urca-bn-item.active {
   color: #2563eb;
 }
 
-.milad-bn-item.active i {
+.urca-bn-item.active i {
   transform: translateY(-2px);
 }
 
 /* Active indicator dot */
-.milad-bn-item.active::after {
+.urca-bn-item.active::after {
   content: '';
   position: absolute;
   bottom: 4px;
@@ -1457,7 +1457,7 @@ body {
 }
 
 /* Centre cart bubble */
-.milad-bn-cart {
+.urca-bn-cart {
   flex: 1;
   display: flex;
   align-items: center;
@@ -1466,7 +1466,7 @@ body {
   padding-bottom: 20px; /* lift it above the bar */
 }
 
-.milad-bn-cart-bubble {
+.urca-bn-cart-bubble {
   position: relative;
   width: 52px;
   height: 52px;
@@ -1480,18 +1480,18 @@ body {
   border: 3px solid #fff;
 }
 
-.milad-bn-cart:hover .milad-bn-cart-bubble,
-.milad-bn-cart.active .milad-bn-cart-bubble {
+.urca-bn-cart:hover .urca-bn-cart-bubble,
+.urca-bn-cart.active .urca-bn-cart-bubble {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(37,99,235,.55);
 }
 
-.milad-bn-cart-bubble i {
+.urca-bn-cart-bubble i {
   font-size: 1.25rem;
   color: #fff;
 }
 
-.milad-bn-badge {
+.urca-bn-badge {
   position: absolute;
   top: -4px;
   right: -4px;
@@ -1509,7 +1509,7 @@ body {
 }
 
 /* Bottom nav account button (for logged-in user dropdown) */
-.milad-bn-item-btn {
+.urca-bn-item-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1528,19 +1528,19 @@ body {
   transition: color .2s ease;
 }
 
-.milad-bn-item-btn i {
+.urca-bn-item-btn i {
   font-size: 1.25rem;
   transition: transform .2s ease, color .2s ease;
 }
 
-.milad-bn-item-btn:hover,
-.milad-bn-item.show .milad-bn-item-btn {
+.urca-bn-item-btn:hover,
+.urca-bn-item.show .urca-bn-item-btn {
   color: #2563eb;
 }
 
 /* Hide top bar on mobile */
 @media (max-width: 991px) {
-  .milad-topbar { display: none; }
+  .urca-topbar { display: none; }
 }
 
 /* Lift back-to-top above bottom nav on mobile */
@@ -1554,13 +1554,13 @@ html, body {
   padding-top: 0 !important;
 }
 
-.milad-navbar.sticky-top {
+.urca-navbar.sticky-top {
   top: 0 !important;
   margin-top: 0 !important;
 }
 
 /* ── Language Select ── */
-.milad-lang-select {
+.urca-lang-select {
   appearance: none;
   -webkit-appearance: none;
   background: #F1F5F9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E") no-repeat right .6rem center / 10px 6px;
@@ -1578,8 +1578,8 @@ html, body {
   font-family: inherit;
 }
 
-.milad-lang-select:hover,
-.milad-lang-select:focus {
+.urca-lang-select:hover,
+.urca-lang-select:focus {
   background-color: #2563EB;
   color: #fff;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23ffffff'/%3E%3C/svg%3E");
@@ -1587,7 +1587,7 @@ html, body {
 }
 
 /* Mobile full-width variant */
-.milad-lang-select.w-100 {
+.urca-lang-select.w-100 {
   border-radius: 10px;
   padding: .6rem 2.25rem .6rem 1rem;
   font-size: .9rem;
@@ -1603,7 +1603,7 @@ html, body {
   .card:hover { transform: none !important; box-shadow: var(--sh-sm) !important; }
   .btn:hover  { transform: none !important; }
   .btn-primary:hover { box-shadow: var(--sh-blue) !important; }
-  .milad-nav-link:hover { background: transparent !important; }
+  .urca-nav-link:hover { background: transparent !important; }
   a:hover { color: inherit; }
 }
 
@@ -1622,7 +1622,7 @@ html, body {
 .hero-img {
   will-change: transform;
 }
-.milad-navbar {
+.urca-navbar {
   will-change: auto;
 }
 .back-to-top {
@@ -1642,7 +1642,7 @@ html, body {
   /* Reduce transition costs on mobile */
   .card { transition: none !important; }
   /* Simplify gallery hover on mobile */
-  .milad-gallery-item img { transition: none !important; }
+  .urca-gallery-item img { transition: none !important; }
 }
 
 /* 6. Image aspect ratio boxes to prevent CLS */

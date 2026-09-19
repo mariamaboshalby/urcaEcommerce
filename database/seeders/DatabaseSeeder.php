@@ -44,5 +44,13 @@ class DatabaseSeeder extends Seeder
         //         ]
         //     );
         // }
+
+        // ── Auto Sync Products from External API ─────────────────────
+        $apiUrl = \App\Models\Setting::get('products_api_url', env('PRODUCTS_API_URL'));
+        if (!empty($apiUrl)) {
+            $apiToken = \App\Models\Setting::get('products_api_token', env('PRODUCTS_API_TOKEN'));
+            $syncService = app(\App\Services\ExternalProductSyncService::class);
+            $syncService->sync($apiUrl, $apiToken);
+        }
     }
 }

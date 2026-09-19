@@ -98,9 +98,9 @@ Route::get('/orders/{order}/detail', [OrderController::class, 'detail'])->name('
 Route::post('/orders/quick', [OrderController::class, 'quickOrder'])->name('orders.quick');
 
 // ============================================================
-// Admin Dashboard (URL prefix: /tvad)
+// Admin Dashboard (URL prefix: /urcaAdm)
 // ============================================================
-Route::prefix('tvad')->name('admin.')->middleware('admin')->group(function () {
+Route::prefix('urcaAdm')->name('admin.')->middleware('admin')->group(function () {
 
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -147,6 +147,7 @@ Route::prefix('tvad')->name('admin.')->middleware('admin')->group(function () {
     // Settings & Home Sections
     Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');
     Route::post('settings', [AdminSettingController::class, 'update'])->name('settings.update');
+    Route::post('settings/sync-api', [AdminSettingController::class, 'syncApi'])->name('settings.sync_api');
     Route::resource('brands', AdminBrandController::class);
     Route::resource('faqs', AdminFaqController::class);
 });

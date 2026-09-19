@@ -33,9 +33,14 @@
         <a href="{{ route('admin.products.index') }}" class="btn btn-secondary btn-sm"><i class="fas fa-times"></i> {{ __('app.clear') }}</a>
         @endif
     </form>
-    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-        <i class="fas fa-plus"></i> {{ __('app.add_product') }}
-    </a>
+    <div style="display:flex;gap:8px;align-items:center;">
+        <a href="{{ route('admin.settings.index') }}#api-settings" class="btn btn-secondary" title="ربط ومزامنة المنتجات من API">
+            <i class="fas fa-cloud-arrow-down me-1"></i> مزامنة من API
+        </a>
+        <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
+            <i class="fas fa-plus me-1"></i> {{ __('app.add_product') }}
+        </a>
+    </div>
 </div>
 
 <!-- Table -->

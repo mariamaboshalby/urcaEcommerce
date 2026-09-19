@@ -10,8 +10,8 @@
 | WhatsApp | +20 10 93803270 | `https://wa.me/201093803270` |
 
 ### البريد الإلكتروني / Email
-- **Email:** miladsami.tv@gmail.com
-- **Link:** `mailto:miladsami.tv@gmail.com`
+- **Email:** urcasami.tv@gmail.com
+- **Link:** `mailto:urcasami.tv@gmail.com`
 
 ---
 
@@ -23,12 +23,12 @@
 - **Page ID:** 181WTrqgHu
 
 ### Instagram
-- **Profile:** https://www.instagram.com/miladsami.tv/
-- **Username:** @miladsami.tv
+- **Profile:** https://www.instagram.com/urcasami.tv/
+- **Username:** @urcasami.tv
 
 ### YouTube
-- **Channel:** https://www.youtube.com/@miladsami-tv
-- **Handle:** @miladsami-tv
+- **Channel:** https://www.youtube.com/@urcasami-tv
+- **Handle:** @urcasami-tv
 
 ### WhatsApp Business
 - **Direct Chat:** https://wa.me/201093803270
@@ -124,7 +124,7 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 
 ### Instagram
 ```html
-<a href="https://www.instagram.com/miladsami.tv/" 
+<a href="https://www.instagram.com/urcasami.tv/" 
    target="_blank" 
    rel="noopener noreferrer">
     <i class="fab fa-instagram"></i>
@@ -133,7 +133,7 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 
 ### YouTube
 ```html
-<a href="https://www.youtube.com/@miladsami-tv" 
+<a href="https://www.youtube.com/@urcasami-tv" 
    target="_blank" 
    rel="noopener noreferrer">
     <i class="fab fa-youtube"></i>

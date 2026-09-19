@@ -1,5 +1,5 @@
 /**
- * milad E-Commerce - Main JavaScript
+ * urca E-Commerce - Main JavaScript
  * Handles all interactive features
  */
 
@@ -464,7 +464,7 @@
     // Initialize on Load
     // ========================================================================
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('milad E-Commerce initialized');
+        console.log('urca E-Commerce initialized');
         handleScroll();
     });
 
@@ -493,7 +493,7 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 
 
 // ============================================================
-// milad Premium Navbar — mobile menu wiring (new layout)
+// urca Premium Navbar — mobile menu wiring (new layout)
 // ============================================================
 (function () {
     const hamburger  = document.getElementById('mobileMenuBtn');

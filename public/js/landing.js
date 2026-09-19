@@ -1,5 +1,5 @@
 /**
- * milad Landing Page Scripts
+ * urca Landing Page Scripts
  * Utilizes jQuery for DOM manipulation and animations
  */
 
@@ -7,7 +7,7 @@
     'use strict';
 
     // Namespace to prevent collisions
-    const miladLanding = {
+    const urcaLanding = {
         init: function() {
             this.cacheDOM();
             this.bindEvents();
@@ -17,12 +17,12 @@
 
         cacheDOM: function() {
             this.$window = $(window);
-            this.$navbar = $('#miladNavbar');
+            this.$navbar = $('#urcaNavbar');
             this.$mobileToggle = $('#mobileToggle');
             this.$navLinks = $('#navLinks');
             this.$scrollLinks = $('a[href^="#"]');
             this.$revealElements = $('.reveal');
-            this.$contactForm = $('#miladContactForm');
+            this.$contactForm = $('#urcaContactForm');
         },
 
         bindEvents: function() {
@@ -137,7 +137,7 @@
 
     // Initialize when DOM is ready
     $(document).ready(function() {
-        miladLanding.init();
+        urcaLanding.init();
     });
 
 })(jQuery);
