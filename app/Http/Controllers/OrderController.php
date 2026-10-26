@@ -109,6 +109,7 @@ class OrderController extends Controller
                 'city'               => $order->city,
                 'subtotal'           => $order->subtotal,
                 'shipping'           => $order->shipping,
+                'shipping_label'     => $order->shipping_label,
                 'total'              => $order->total,
                 'created_at'         => $order->created_at->format('d M Y, H:i'),
                 'items'              => $order->items->map(fn($i) => [
@@ -154,6 +155,7 @@ class OrderController extends Controller
             'city'             => $validated['city'] ?? null,
             'subtotal'         => $totalPrice,
             'shipping'         => 0,
+            'shipping_mode'    => Order::SHIPPING_DETERMINED,
             'total'            => $totalPrice,
             'status'           => 'pending',
             'payment_method'   => 'cash',

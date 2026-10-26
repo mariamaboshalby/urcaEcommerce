@@ -935,7 +935,7 @@
                     document.getElementById('modal-items-foot').innerHTML = `
             <tr>
                 <td colspan="3" class="ps-4 text-muted small">${isAr ? 'الشحن' : 'Shipping'}</td>
-                <td class="text-center pe-4 text-muted small">${parseFloat(o.shipping).toFixed(2)} EGP</td>
+                <td class="text-center pe-4 text-muted small">${parseFloat(o.shipping) > 0 ? parseFloat(o.shipping).toFixed(2) + ' EGP' : (o.shipping_label || '—')}</td>
             </tr>
             <tr>
                 <td colspan="3" class="ps-4 fw-bold">${isAr ? 'الإجمالي' : 'Total'}</td>

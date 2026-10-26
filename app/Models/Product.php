@@ -79,6 +79,31 @@ class Product extends Model implements HasMedia
         return '/storage/' . ltrim($media->getPathRelativeToRoot(''), '/');
     }
 
+    /**
+     * Small image for admin lists: the media-library thumb, otherwise the legacy
+     * `image` value (a remote URL from the API sync or a stored path), else ''.
+     */
+    public function getThumbnailUrlAttribute(): string
+    {
+        if ($url = $this->getMainImageUrl('thumb')) {
+            return asset(ltrim($url, '/'));
+        }
+
+        $image = (string) $this->image;
+        $name = strtolower(basename($image));
+
+        // Empty values and synced "no image" placeholders mean the product has no real picture.
+        if ($image === '' || str_contains($name, 'no-image') || str_contains($name, 'placeholder')) {
+            return '';
+        }
+
+        if (preg_match('#^https?://#i', $image)) {
+            return $image;
+        }
+
+        return str_starts_with($image, 'storage/') ? asset($image) : asset('storage/' . $image);
+    }
+
     /* ── Scopes ── */
     public function scopeActive($query)
     {

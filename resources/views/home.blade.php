@@ -6,9 +6,7 @@
 
     @push('styles')
         {{-- Preload the LCP hero image --}}
-        <link rel="preload" as="image" href="{{ asset('images/slider-1-mobile.webp') }}" type="image/webp"
-            media="(max-width: 768px)">
-        <link rel="preload" as="image" href="{{ asset('images/slider-1.webp') }}" type="image/webp" media="(min-width: 769px)">
+        <link rel="preload" as="image" href="{{ $slides[0]['image'] }}">
     @endpush
     @push('styles')
         <style>
@@ -249,71 +247,47 @@
     @endpush
 @section('content')
 
+    <script>
+        // Placeholder shown when a product image URL fails to load (broken/missing image).
+        window.productImgFallback = function (img) {
+            img.onerror = null;
+            var svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 90'>"
+                + "<rect width='120' height='90' fill='#f1f5f9'/>"
+                + "<g fill='none' stroke='#cbd5e1' stroke-width='3'>"
+                + "<rect x='38' y='28' width='44' height='34' rx='4'/>"
+                + "<circle cx='50' cy='40' r='4'/>"
+                + "<path d='M38 56l12-11 9 8 11-12 12 11'/></g></svg>";
+            img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+            img.style.objectFit = 'contain';
+            img.style.background = '#f8fafc';
+        };
+    </script>
+
     {{-- ===== Hero Carousel ===== --}}
     <div class="container-fluid pt-3 pb-2 px-0">
         <div class="mx-auto rounded-4 overflow-hidden shadow-lg" style="width: 92%; max-width: none;">
             <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+                    @foreach($slides as $index => $slide)
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" @if($index === 0) aria-current="true" @endif></button>
+                    @endforeach
                 </div>
                 <div class="carousel-inner px-1">
                     {{-- First slide: eager LCP image (preloaded above) --}}
-                    <div class="carousel-item active">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="{{ asset('images/slider-1-mobile.webp') }}"
-                                type="image/webp">
-                            <source media="(min-width: 769px)" srcset="{{ asset('images/slider-1.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('images/slider-1-mobile.webp') }}" class="d-block w-100 hero-img"
-                                alt="urca - متجر الإلكترونيات والملحقات" fetchpriority="high" decoding="async" width="1479"
-                                height="850" loading="eager">
-                        </picture>
-                    </div>
-                    <div class="carousel-item">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="{{ asset('images/slider-2-mobile.webp') }}"
-                                type="image/webp">
-                            <source media="(min-width: 769px)" srcset="{{ asset('images/slider-2.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('images/slider-2-mobile.webp') }}" class="d-block w-100 hero-img"
-                                alt="Slide 2" loading="lazy" decoding="async" width="1600" height="891">
-                        </picture>
-                    </div>
-                    <div class="carousel-item">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="{{ asset('images/slider-3-mobile.webp') }}"
-                                type="image/webp">
-                            <source media="(min-width: 769px)" srcset="{{ asset('images/slider-3.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('images/slider-3-mobile.webp') }}" class="d-block w-100 hero-img"
-                                alt="Slide 3" loading="lazy" decoding="async" width="810" height="1080">
-                        </picture>
-                    </div>
-                    <div class="carousel-item">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="{{ asset('images/slider-4-mobile.webp') }}"
-                                type="image/webp">
-                            <source media="(min-width: 769px)" srcset="{{ asset('images/slider-4.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('images/slider-4-mobile.webp') }}" class="d-block w-100 hero-img"
-                                alt="Slide 4" loading="lazy" decoding="async" width="1600" height="743">
-                        </picture>
-                    </div>
-                    <div class="carousel-item">
-                        <picture>
-                            <source media="(max-width: 768px)" srcset="{{ asset('images/slider-5-mobile.webp') }}"
-                                type="image/webp">
-                            <source media="(min-width: 769px)" srcset="{{ asset('images/slider-5.webp') }}"
-                                type="image/webp">
-                            <img src="{{ asset('images/slider-5-mobile.webp') }}" class="d-block w-100 hero-img"
-                                alt="Slide 5" loading="lazy" decoding="async" width="1024" height="735">
-                        </picture>
-                    </div>
+                    @foreach($slides as $index => $slide)
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                            @if(!empty($slide['link']))
+                                <a href="{{ $slide['link'] }}" class="d-block hero-slide-link" aria-label="Slide {{ $index + 1 }}">
+                            @endif
+                            <img src="{{ $slide['image'] }}" class="d-block w-100 hero-img" decoding="async"
+                                width="{{ $slide['width'] }}" height="{{ $slide['height'] }}" onerror="productImgFallback(this)"
+                                @if($index === 0) fetchpriority="high" loading="eager" alt="urca - متجر الإلكترونيات والملحقات"
+                                @else loading="lazy" alt="Slide {{ $index + 1 }}" @endif>
+                            @if(!empty($slide['link']))
+                                </a>
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel"
                     data-bs-slide="prev">
@@ -638,7 +612,7 @@
                                     @if (!empty($product['image_url']))
                                         <img src="{{ $product['image_url'] }}" class="w-100 h-100"
                                             style="object-fit:cover;" loading="lazy" decoding="async" width="200"
-                                            height="150" alt="{{ $product['name'] }}">
+                                            height="150" alt="{{ $product['name'] }}" onerror="productImgFallback(this)">
                                     @else
                                         <div class="product-placeholder w-100 h-100"
                                             style="display:flex;align-items:center;justify-content:center;background:#f8fafc;">
@@ -708,7 +682,7 @@
                                     @if (!empty($product['image_url']))
                                         <img src="{{ $product['image_url'] }}" class="w-100 h-100"
                                             style="object-fit:cover;" loading="lazy" decoding="async" width="200"
-                                            height="150" alt="{{ $product['name'] }}">
+                                            height="150" alt="{{ $product['name'] }}" onerror="productImgFallback(this)">
                                     @else
                                         <div class="product-placeholder w-100 h-100"
                                             style="display:flex;align-items:center;justify-content:center;background:#f8fafc;">
@@ -778,7 +752,7 @@
                                     @if (!empty($product['image_url']))
                                         <img src="{{ $product['image_url'] }}" class="w-100 h-100"
                                             style="object-fit:cover;" loading="lazy" decoding="async" width="200"
-                                            height="150" alt="{{ $product['name'] }}">
+                                            height="150" alt="{{ $product['name'] }}" onerror="productImgFallback(this)">
                                     @else
                                         <div class="product-placeholder w-100 h-100"
                                             style="display:flex;align-items:center;justify-content:center;background:#f8fafc;">
@@ -866,7 +840,7 @@
                             @if (!empty($dealProduct['image_url']))
                                 <img src="{{ $dealProduct['image_url'] }}" class="img-fluid rounded-4 shadow-lg"
                                     style="max-height: 400px; object-fit: cover;" loading="lazy" decoding="async"
-                                    width="400" height="400" alt="{{ $dealProduct['name'] }}">
+                                    width="400" height="400" alt="{{ $dealProduct['name'] }}" onerror="productImgFallback(this)">
                             @else
                                 <div class="bg-light rounded-4 d-flex flex-column align-items-center justify-content-center position-relative"
                                     style="height: 300px;">
@@ -954,7 +928,7 @@
                                         @if (!empty($product['image_url']))
                                             <img src="{{ $product['image_url'] }}" class="w-100 h-100"
                                                 style="object-fit:cover;" loading="lazy" decoding="async" width="200"
-                                                height="150" alt="{{ $product['name'] }}">
+                                                height="150" alt="{{ $product['name'] }}" onerror="productImgFallback(this)">
                                         @else
                                             <div class="product-placeholder w-100 h-100"
                                                 style="display:flex;align-items:center;justify-content:center;background:#f8fafc;">

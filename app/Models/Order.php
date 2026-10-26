@@ -9,6 +9,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    /** Shipping cost still to be set by the admin on the order page. */
+    public const SHIPPING_DETERMINED = 'determined';
+    public const SHIPPING_FREE       = 'free';
+    public const SHIPPING_FIXED      = 'fixed';
+
     protected $fillable = [
         'user_id',
         'order_number',
@@ -19,6 +24,7 @@ class Order extends Model
         'city',
         'subtotal',
         'shipping',
+        'shipping_mode',
         'total',
         'status',
         'payment_method',
@@ -40,6 +46,16 @@ class Order extends Model
     public function items()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * Label for an undetermined / free shipping cost (a real cost is rendered by the view).
+     */
+    public function getShippingLabelAttribute(): string
+    {
+        return in_array($this->shipping_mode, [self::SHIPPING_FREE, self::SHIPPING_FIXED], true)
+            ? __('app.free_shipping')
+            : __('app.shipping_determined');
     }
 
     public function getStatusLabelAttribute(): string

@@ -126,6 +126,10 @@
                                 <span class="text-secondary">{{ __('app.cart_subtotal') }}</span>
                                 <span class="fw-semibold">{{ number_format($total) }} EGP</span>
                             </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="text-secondary">{{ __('app.shipping') }}</span>
+                                <span class="fw-semibold text-muted">{{ __('app.shipping_determined') }}</span>
+                            </div>
                             <hr>
                             <div class="d-flex justify-content-between mb-4">
                                 <span class="fw-bold fs-5">{{ __('app.total') }}</span>

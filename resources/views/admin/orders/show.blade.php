@@ -30,8 +30,11 @@
                         <tr>
                             <td>
                                 <div style="display:flex;align-items:center;gap:.75rem">
-                                    <div style="width:40px;height:40px;background:var(--primary-pale);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--primary)">
+                                    <div class="order-item-thumb">
                                         <i class="fas fa-box"></i>
+                                        @if ($thumb = $item->product?->thumbnail_url)
+                                            <img src="{{ $thumb }}" alt="{{ $item->product_name }}" loading="lazy" onerror="this.remove()">
+                                        @endif
                                     </div>
                                     <strong>{{ $item->product_name }}</strong>
                                 </div>
@@ -47,7 +50,7 @@
             <div style="padding:1.5rem;border-top:1px solid var(--ink-100)">
                 <div class="order-totals">
                     <div class="total-row"><span>{{ __('app.subtotal') }}</span><span>{{ number_format($order->subtotal) }} ج</span></div>
-                    <div class="total-row"><span>{{ __('app.shipping') }}</span><span>{{ $order->shipping > 0 ? number_format($order->shipping).' ج' : __('app.free_shipping') }}</span></div>
+                    <div class="total-row"><span>{{ __('app.shipping') }}</span><span>{{ $order->shipping > 0 ? number_format($order->shipping) . ' ج' : $order->shipping_label }}</span></div>
                     <div class="total-row total-final"><span>{{ __('app.total') }}</span><span>{{ number_format($order->total) }} ج</span></div>
                 </div>
             </div>
@@ -134,6 +137,47 @@
             </div>
         </div>
 
+        <!-- Shipping -->
+        @php
+            $shipMode = in_array($order->shipping_mode, [\App\Models\Order::SHIPPING_FREE, \App\Models\Order::SHIPPING_FIXED], true)
+                ? $order->shipping_mode
+                : \App\Models\Order::SHIPPING_DETERMINED;
+            $shipBadge = $order->shipping > 0 ? 'blue' : ($shipMode === \App\Models\Order::SHIPPING_FREE ? 'green' : 'orange');
+        @endphp
+        <div class="card" style="margin-bottom:1.5rem">
+            <div class="card-header"><h2><i class="fas fa-truck-fast" style="color:var(--primary);margin-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}:.5rem"></i> {{ __('app.shipping') }}</h2></div>
+            <div class="card-body">
+                <div style="margin-bottom:1rem">
+                    <span class="badge badge-{{ $shipBadge }}" style="font-size:1rem;padding:.5rem 1.25rem">
+                        {{ $order->shipping > 0 ? number_format($order->shipping) . ' ج' : $order->shipping_label }}
+                    </span>
+                </div>
+                <form method="POST" action="{{ route('admin.orders.shipping', $order) }}">
+                    @csrf @method('PATCH')
+                    <div class="form-group">
+                        <label class="form-label" for="shipping_mode">{{ __('app.change_shipping') }}</label>
+                        <select name="shipping_mode" id="shipping_mode" class="form-control">
+                            <option value="determined" {{ $shipMode === \App\Models\Order::SHIPPING_DETERMINED ? 'selected' : '' }}>{{ __('app.shipping_determined') }}</option>
+                            <option value="free" {{ $shipMode === \App\Models\Order::SHIPPING_FREE ? 'selected' : '' }}>{{ __('app.shipping_mode_free') }}</option>
+                            <option value="fixed" {{ $shipMode === \App\Models\Order::SHIPPING_FIXED ? 'selected' : '' }}>{{ __('app.shipping_mode_fixed') }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="shipping_cost_group" style="{{ $shipMode === \App\Models\Order::SHIPPING_FIXED ? '' : 'display:none' }}">
+                        <label class="form-label" for="shipping_cost">{{ __('app.shipping_cost') }}</label>
+                        <input type="number" step="0.01" min="0" id="shipping_cost" name="shipping_cost" class="form-control"
+                               value="{{ old('shipping_cost', $order->shipping > 0 ? $order->shipping + 0 : '') }}" placeholder="50">
+                        @error('shipping_cost')
+                            <small style="color:#dc2626;display:block;margin-top:.35rem">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <small class="form-hint" style="display:block;color:var(--ink-500);margin-bottom:.75rem">{{ __('app.shipping_help') }}</small>
+                    <button type="submit" class="btn btn-primary" style="width:100%">
+                        <i class="fas fa-save"></i> {{ __('app.update_shipping') }}
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <!-- Order Info -->
         <div class="card">
             <div class="card-header"><h2><i class="fas fa-info-circle" style="color:var(--primary);margin-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}:.5rem"></i> {{ __('app.order_info') }}</h2></div>
@@ -150,6 +194,8 @@
 @push('styles')
 <style>
 .order-layout { display:grid; grid-template-columns:1fr 360px; gap:1.5rem; align-items:start; }
+.order-item-thumb { position:relative; width:40px; height:40px; flex-shrink:0; background:var(--primary-pale); border-radius:var(--r); display:flex; align-items:center; justify-content:center; color:var(--primary); overflow:hidden; }
+.order-item-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 .order-totals { max-width:300px; margin-inline-start:auto; }
 .total-row { display:flex; justify-content:space-between; padding:.5rem 0; color:var(--ink-600); border-bottom:1px solid var(--ink-100); }
 .total-row:last-child { border-bottom:none; }
@@ -161,6 +207,22 @@
 .info-value { color:var(--ink-900); font-weight:500; }
 @media (max-width:1024px) { .order-layout { grid-template-columns:1fr; } }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    // Show the cost input only when a fixed shipping value is chosen
+    const shipMode = document.getElementById('shipping_mode');
+    const shipCostGroup = document.getElementById('shipping_cost_group');
+    if (shipMode && shipCostGroup) {
+        const toggleShipCost = () => {
+            shipCostGroup.style.display = shipMode.value === 'fixed' ? '' : 'none';
+            document.getElementById('shipping_cost').disabled = shipMode.value !== 'fixed';
+        };
+        shipMode.addEventListener('change', toggleShipCost);
+        toggleShipCost();
+    }
+</script>
 @endpush
 
 

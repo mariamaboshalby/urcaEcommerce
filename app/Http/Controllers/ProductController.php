@@ -103,13 +103,21 @@ class ProductController extends Controller
         });
         $categoryIconMap = $allCats->pluck('icon', 'slug')->toArray();
 
-        return view('products.index', [
+        $data = [
             'products'       => $mappedProducts,
             'category'       => $category,
             'sort'           => $sort,
+            'search'         => $search,
             'dbCategories'   => $dbCategories,
             'categoryIconMap'=> $categoryIconMap,
-        ]);
+        ];
+
+        // Live search re-renders the grid partial only, instead of the whole page.
+        if ($request->boolean('partial')) {
+            return view('products._grid', $data);
+        }
+
+        return view('products.index', $data);
     }
 
     /**

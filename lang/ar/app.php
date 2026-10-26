@@ -415,6 +415,7 @@ return [
     'subtotal'              => 'المجموع الفرعي',
     'shipping'              => 'الشحن',
     'free_shipping'         => 'شحن مجاني',
+    'shipping_determined'   => 'سيتم تحديده',
     'pending'               => 'قيد الانتظار',
     'processing_status'     => 'قيد المعالجة',
     'shipped'               => 'تم الشحن',

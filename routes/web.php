@@ -114,6 +114,7 @@ Route::prefix('urcaAdm')->name('admin.')->middleware('admin')->group(function ()
     Route::get('orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
     Route::patch('orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.status');
     Route::patch('orders/{order}/payment', [AdminOrderController::class, 'updatePayment'])->name('orders.payment');
+    Route::patch('orders/{order}/shipping', [AdminOrderController::class, 'updateShipping'])->name('orders.shipping');
     Route::delete('orders/{order}', [AdminOrderController::class, 'destroy'])->name('orders.destroy');
 
     // Users

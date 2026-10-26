@@ -415,6 +415,7 @@ return [
     'subtotal'              => 'Subtotal',
     'shipping'              => 'Shipping',
     'free_shipping'         => 'Free Shipping',
+    'shipping_determined'   => 'To be determined',
     'pending'               => 'Pending',
     'processing_status'     => 'Processing',
     'shipped'               => 'Shipped',

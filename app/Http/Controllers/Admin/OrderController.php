@@ -67,6 +67,33 @@ class OrderController extends Controller
         return back()->with('success', 'تم تحديث حالة الدفع بنجاح');
     }
 
+    /**
+     * Set the shipping cost for a single order and refresh its total.
+     */
+    public function updateShipping(Request $request, Order $order)
+    {
+        $mode = (string) $request->input('shipping_mode');
+
+        $validated = $request->validate([
+            'shipping_mode' => 'required|in:' . Order::SHIPPING_DETERMINED . ',' . Order::SHIPPING_FREE . ',' . Order::SHIPPING_FIXED,
+            'shipping_cost' => ($mode === Order::SHIPPING_FIXED ? 'required' : 'nullable') . '|numeric|min:0',
+        ], [
+            'shipping_cost.required' => 'مطلوب إدخال قيمة الشحن عند اختيار قيمة ثابتة.',
+            'shipping_cost.numeric'  => 'قيمة الشحن يجب أن تكون رقماً.',
+            'shipping_cost.min'      => 'قيمة الشحن لا يمكن أن تكون سالبة.',
+        ]);
+
+        $shipping = $mode === Order::SHIPPING_FIXED ? round((float) $validated['shipping_cost'], 2) : 0;
+
+        $order->update([
+            'shipping'      => $shipping,
+            'shipping_mode' => $mode,
+            'total'         => $order->subtotal + $shipping,
+        ]);
+
+        return back()->with('success', 'تم تحديث الشحن وإجمالي الطلب بنجاح');
+    }
+
     public function destroy(Order $order)
     {
         $order->items()->delete();

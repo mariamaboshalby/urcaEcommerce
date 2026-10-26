@@ -54,7 +54,10 @@ class CartController extends Controller
             $total += $normalised[$id]['price'] * $qty;
         }
 
-        return view('cart.index', ['cart' => $normalised, 'total' => $total]);
+        return view('cart.index', [
+            'cart'  => $normalised,
+            'total' => $total,
+        ]);
     }
 
     public function add(Request $request)

@@ -12,6 +12,7 @@ use App\Models\Setting;
 use App\Models\Brand;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -162,6 +163,41 @@ class HomeController extends Controller
             return Setting::pluck('value', 'key')->toArray();
         });
 
+        // Slider slides (dynamic ordered list from admin settings, with static defaults fallback).
+        // Each slide: image (custom upload) OR src (default asset); the front-end CSS handles responsive cropping.
+        $defaultSrcs = [
+            'images/slider-1.webp',
+            'images/slider-2.webp',
+            'images/slider-3.webp',
+            'images/slider-4.webp',
+            'images/slider-5.webp',
+        ];
+        $storedSlides = json_decode($settings['slider_images'] ?? '[]', true) ?: [];
+        if (empty($storedSlides)) {
+            $storedSlides = array_map(fn($src) => ['image' => null, 'src' => $src, 'link' => null], $defaultSrcs);
+        }
+        $slides = [];
+        foreach ($storedSlides as $s) {
+            $image = $s['image'] ?? null;
+            $src = $s['src'] ?? null;
+            if ($image && Storage::disk('public')->exists($image)) {
+                $url = asset('storage/' . $image);
+            } elseif ($src) {
+                $url = asset($src);
+            } else {
+                continue; // no resolvable image → skip slide
+            }
+            $slides[] = [
+                'image'  => $url,
+                'link'   => !empty($s['link']) ? $s['link'] : null,
+                'width'  => 1600,
+                'height' => 800,
+            ];
+        }
+        if (empty($slides)) {
+            $slides = array_map(fn($src) => ['image' => asset($src), 'link' => null, 'width' => 1600, 'height' => 800], $defaultSrcs);
+        }
+
         // Deal of the Day (cached 30 mins)
         $dealProduct = null;
         if (($settings['home_show_deal'] ?? '0') == '1' && !empty($settings['home_deal_product_id'])) {
@@ -210,7 +246,7 @@ class HomeController extends Controller
         return view('home', compact(
             'featuredProducts', 'stats', 'blogPosts', 'downloads', 'testimonials',
             'bestSellingProducts', 'topCategories', 'mostVisitedProducts', 'latestProducts',
-            'settings', 'dealProduct', 'brands', 'faqs', 'recommendedProducts'
+            'settings', 'dealProduct', 'brands', 'faqs', 'recommendedProducts', 'slides'
         ));
     }
 }
