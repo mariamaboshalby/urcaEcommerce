@@ -165,6 +165,16 @@
     </div>
 </section>
 
+{{-- Product image lightbox --}}
+<div class="prod-lightbox" id="prodLightbox" hidden>
+    <div class="prod-lightbox-backdrop"></div>
+    <div class="prod-lightbox-body">
+        <button class="prod-lightbox-close" type="button" aria-label="Close">&times;</button>
+        <img src="" alt="">
+        <p class="prod-lightbox-cap"></p>
+    </div>
+</div>
+
 @endsection
 
 @push('styles')
@@ -356,7 +366,18 @@
     0%   { transform: scale(1);    }
     50%  { transform: scale(1.35); }
     100% { transform: scale(1);    }
-}</style>
+}
+
+/* ── Product image lightbox ── */
+.product-img-zoom { cursor: zoom-in; }
+.prod-lightbox { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; }
+.prod-lightbox[hidden] { display: none; }
+.prod-lightbox-backdrop { position: absolute; inset: 0; background: rgba(2,10,22,.8); backdrop-filter: blur(3px); }
+.prod-lightbox-body { position: relative; max-width: 90vw; max-height: 88vh; background: #fff; border-radius: 16px; padding: 1rem; box-shadow: 0 24px 60px rgba(0,0,0,.45); display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+.prod-lightbox-body img { max-width: 82vw; max-height: 70vh; object-fit: contain; border-radius: 10px; }
+.prod-lightbox-cap { margin: 0; color: #334155; font-weight: 600; text-align: center; }
+.prod-lightbox-close { position: absolute; top: .5rem; inset-inline-end: .5rem; width: 34px; height: 34px; border: none; border-radius: 50%; background: #f1f5f9; color: #334155; font-size: 1.4rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.prod-lightbox-close:hover { background: #e2e8f0; }</style>
 @endpush
 
 @push('scripts')
@@ -473,6 +494,38 @@
         u.searchParams.set('partial', '1');
         loadFrom(u.toString(), link.href);
     });
+}());
+
+/* ── Product image lightbox: click card image to enlarge (delegated to survive live-search re-renders) ── */
+(function () {
+    const lb = document.getElementById('prodLightbox');
+    if (!lb) return;
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.prod-lightbox-cap');
+    const open = (src, name) => {
+        lbImg.src = src;
+        lbImg.alt = name || '';
+        lbCap.textContent = name || '';
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+        lb.hidden = true;
+        lbImg.src = '';
+        document.body.style.overflow = '';
+    };
+    document.addEventListener('click', function (e) {
+        const z = e.target.closest('.product-img-zoom');
+        if (!z) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const f = z.getAttribute('data-full');
+        if (f) open(f, z.getAttribute('data-name'));
+    });
+    lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('prod-lightbox-backdrop') || e.target.classList.contains('prod-lightbox-close')) close();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 }());
 </script>
 @endpush

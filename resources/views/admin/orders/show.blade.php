@@ -23,14 +23,22 @@
             <div class="table-container">
                 <table class="data-table">
                     <thead>
-                        <tr><th>{{ __('app.product_col') }}</th><th>{{ __('app.unit_price') }}</th><th>{{ __('app.quantity') }}</th><th>{{ __('app.total') }}</th></tr>
+                        <tr><th>{{ __('app.product_col') }}</th><th>{{ __('app.unit_price') }}</th><th>{{ __('app.quantity') }}</th><th>{{ __('app.total') }}</th><th>{{ __('app.stock') }}</th></tr>
                     </thead>
                     <tbody>
                         @foreach($order->items as $item)
+                        @php
+                            $fullImg = '';
+                            if ($item->product) {
+                                $main = $item->product->getMainImageUrl('card');
+                                $fullImg = $main ? asset(ltrim($main, '/')) : $item->product->thumbnail_url;
+                            }
+                            $stockQty = $item->product ? (int) $item->product->stock : null;
+                        @endphp
                         <tr>
                             <td>
                                 <div style="display:flex;align-items:center;gap:.75rem">
-                                    <div class="order-item-thumb">
+                                    <div class="order-item-thumb {{ $fullImg ? 'order-thumb-zoom' : '' }}" data-full="{{ $fullImg }}" data-name="{{ $item->product_name }}">
                                         <i class="fas fa-box"></i>
                                         @if ($thumb = $item->product?->thumbnail_url)
                                             <img src="{{ $thumb }}" alt="{{ $item->product_name }}" loading="lazy" onerror="this.remove()">
@@ -42,6 +50,15 @@
                             <td>{{ number_format($item->price) }} ج</td>
                             <td><span class="badge badge-blue">× {{ $item->quantity }}</span></td>
                             <td><strong style="color:var(--primary)">{{ number_format($item->total) }} ج</strong></td>
+                            <td>
+                                @if($stockQty === null)
+                                    <span class="badge badge-orange">—</span>
+                                @elseif($stockQty > 0)
+                                    <span class="badge badge-green">{{ number_format($stockQty) }}</span>
+                                @else
+                                    <span class="badge badge-red">0</span>
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -189,6 +206,16 @@
         </div>
     </div>
 </div>
+
+<!-- Image Lightbox -->
+<div class="img-lightbox" id="imgLightbox" hidden>
+    <div class="img-lightbox-backdrop"></div>
+    <div class="img-lightbox-body">
+        <button class="img-lightbox-close" type="button" aria-label="Close">&times;</button>
+        <img src="" alt="">
+        <p class="img-lightbox-cap"></p>
+    </div>
+</div>
 @endsection
 
 @push('styles')
@@ -196,6 +223,16 @@
 .order-layout { display:grid; grid-template-columns:1fr 360px; gap:1.5rem; align-items:start; }
 .order-item-thumb { position:relative; width:40px; height:40px; flex-shrink:0; background:var(--primary-pale); border-radius:var(--r); display:flex; align-items:center; justify-content:center; color:var(--primary); overflow:hidden; }
 .order-item-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.order-thumb-zoom { cursor:zoom-in; outline:2px solid transparent; transition:outline-color .2s ease, transform .2s ease; }
+.order-thumb-zoom:hover { outline-color:var(--primary); transform:scale(1.06); }
+.img-lightbox { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; }
+.img-lightbox[hidden] { display:none; }
+.img-lightbox-backdrop { position:absolute; inset:0; background:rgba(2,10,22,.78); backdrop-filter:blur(3px); }
+.img-lightbox-body { position:relative; max-width:90vw; max-height:88vh; background:#fff; border-radius:16px; padding:1rem; box-shadow:0 24px 60px rgba(0,0,0,.45); display:flex; flex-direction:column; align-items:center; gap:.75rem; }
+.img-lightbox-body img { max-width:82vw; max-height:70vh; object-fit:contain; border-radius:10px; }
+.img-lightbox-cap { margin:0; color:var(--ink-700); font-weight:600; text-align:center; }
+.img-lightbox-close { position:absolute; top:.5rem; inset-inline-end:.5rem; width:34px; height:34px; border:none; border-radius:50%; background:var(--ink-100); color:var(--ink-700); font-size:1.4rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.img-lightbox-close:hover { background:var(--ink-200); }
 .order-totals { max-width:300px; margin-inline-start:auto; }
 .total-row { display:flex; justify-content:space-between; padding:.5rem 0; color:var(--ink-600); border-bottom:1px solid var(--ink-100); }
 .total-row:last-child { border-bottom:none; }
@@ -222,6 +259,36 @@
         shipMode.addEventListener('change', toggleShipCost);
         toggleShipCost();
     }
+
+    // Product image lightbox (click thumbnail to enlarge)
+    (function () {
+        const lb = document.getElementById('imgLightbox');
+        if (!lb) return;
+        const lbImg = lb.querySelector('img');
+        const lbCap = lb.querySelector('.img-lightbox-cap');
+        const open = (src, name) => {
+            lbImg.src = src;
+            lbImg.alt = name || '';
+            lbCap.textContent = name || '';
+            lb.hidden = false;
+            document.body.style.overflow = 'hidden';
+        };
+        const close = () => {
+            lb.hidden = true;
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        };
+        document.querySelectorAll('.order-thumb-zoom').forEach(function (el) {
+            el.addEventListener('click', function () {
+                const f = el.getAttribute('data-full');
+                if (f) open(f, el.getAttribute('data-name'));
+            });
+        });
+        lb.addEventListener('click', function (e) {
+            if (e.target === lb || e.target.classList.contains('img-lightbox-backdrop') || e.target.classList.contains('img-lightbox-close')) close();
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
 </script>
 @endpush
 

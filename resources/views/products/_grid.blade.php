@@ -35,7 +35,7 @@
             </button>
 
             {{-- Image --}}
-            <div class="product-img-area">
+            <div class="product-img-area{{ !empty($product['full_url']) ? ' product-img-zoom' : '' }}" data-full="{{ $product['full_url'] ?? '' }}" data-name="{{ $product['name'] }}">
                 @if(!empty($product['image_url']))
                     <img src="{{ $product['image_url'] }}" alt="{{ $product['name'] }}"
                          class="w-100 h-100" style="object-fit:cover;"

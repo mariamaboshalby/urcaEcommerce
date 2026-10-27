@@ -663,7 +663,7 @@ ul {
 
 .data-table th {
   padding: .875rem 1.25rem;
-  text-align: right;
+  text-align: start;
   font-weight: 700;
   color: var(--ink-500);
   font-size: .8125rem;
