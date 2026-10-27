@@ -30,8 +30,8 @@
                         </div>
                         <h5 class="fw-bold mb-2" style="color:#0f172a;">
                             {{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call Us' }}</h5>
-                        <a href="tel:+201093803270" class="text-primary text-decoration-none fw-semibold">+20 10
-                            93803270</a>
+                        <a href="tel:+201067596149" class="text-primary text-decoration-none fw-semibold">+20 10
+                            67596149</a>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <h5 class="fw-bold mb-2" style="color:#0f172a;">WhatsApp</h5>
-                        <a href="https://wa.me/201093803270" target="_blank" class="text-decoration-none fw-semibold"
+                        <a href="https://wa.me/201067596149" target="_blank" class="text-decoration-none fw-semibold"
                             style="color:#25D366;">{{ app()->getLocale() === 'ar' ? 'راسلنا الآن' : 'Message Us' }}</a>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                         </div>
                         <h5 class="fw-bold mb-2" style="color:#0f172a;">
                             {{ app()->getLocale() === 'ar' ? 'البريد الإلكتروني' : 'Email' }}</h5>
-                        <a href="mailto:urcasami.tv@gmail.com" class="text-primary text-decoration-none fw-semibold"
-                            style="font-size:.9rem;">urcasami.tv@gmail.com</a>
+                        <a href="mailto:urcaerp@gmail.com" class="text-primary text-decoration-none fw-semibold"
+                            style="font-size:.9rem;">urcaerp@gmail.com</a>
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="https://www.google.com/maps/place/30%C2%B056'37.3%22N+31%C2%B017'22.0%22E/@30.9436857,31.2894227,21z"
+                        <a href="https://www.google.com/maps/place/30%C2%B057'38.2%22N+31%C2%B014'40.3%22E/@30.9607368,31.2447841,17z"
                             target="_blank" class="btn btn-outline-primary mb-4">
                             <i
                                 class="fas fa-directions me-2"></i>{{ app()->getLocale() === 'ar' ? 'احصل على الاتجاهات' : 'Get Directions' }}
@@ -171,10 +171,10 @@
                 {{ app()->getLocale() === 'ar' ? 'نحن هنا للمساعدة! تواصل معنا الآن' : "We're here to help! Contact us now" }}
             </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="tel:+201093803270" class="btn btn-light btn-lg px-5">
+                <a href="tel:+201067596149" class="btn btn-light btn-lg px-5">
                     <i class="fas fa-phone-alt me-2"></i>{{ app()->getLocale() === 'ar' ? 'اتصل الآن' : 'Call Now' }}
                 </a>
-                <a href="https://wa.me/201093803270" target="_blank" class="btn btn-outline-light btn-lg px-5">
+                <a href="https://wa.me/201067596149" target="_blank" class="btn btn-outline-light btn-lg px-5">
                     <i class="fab fa-whatsapp me-2"></i>WhatsApp
                 </a>
             </div>

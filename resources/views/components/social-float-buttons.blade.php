@@ -4,7 +4,7 @@
 <div class="sfb-wrap" id="sfbWrap">
 
     {{-- Child buttons — absolutely stacked above toggle --}}
-    <a href="https://wa.me/201093803270"
+    <a href="https://wa.me/201067596149"
        target="_blank" rel="noopener noreferrer"
        class="sfb-btn sfb-whatsapp"
        aria-label="WhatsApp">
@@ -12,7 +12,7 @@
         <span class="sfb-label">WhatsApp</span>
     </a>
 
-    <a href="tel:+201093803270"
+    <a href="tel:+201067596149"
        class="sfb-btn sfb-phone"
        aria-label="{{ $isAr ? 'اتصل بنا' : 'Call us' }}">
         <i class="fas fa-phone-alt"></i>

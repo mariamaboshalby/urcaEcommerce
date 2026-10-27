@@ -115,10 +115,21 @@ ul {
 }
 
 .adm-logo-img {
-  height: 38px;
-  width: auto;
+  height: 42px;
+  width: 42px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+}
+
+.adm-logo-text {
+  margin-inline-start: 10px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: .5px;
 }
 
 .adm-sidebar-close {

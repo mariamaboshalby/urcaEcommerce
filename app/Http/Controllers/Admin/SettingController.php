@@ -10,27 +10,14 @@ use Illuminate\Support\Facades\Validator;
 
 class SettingController extends Controller
 {
-    /** Default hero slider images used when nothing has been configured yet. */
-    private const SLIDER_DEFAULTS = [
-        'images/slider-1.webp',
-        'images/slider-2.webp',
-        'images/slider-3.webp',
-        'images/slider-4.webp',
-        'images/slider-5.webp',
-    ];
-
     public function index()
     {
         $settings = Setting::pluck('value', 'key')->toArray();
         $products = \App\Models\Product::active()->get();
 
+        // Slider slides come solely from admin-configured settings.
+        // If nothing has been added, the list stays empty (front-end hides the slider).
         $sliderSlides = json_decode($settings['slider_images'] ?? '[]', true) ?: [];
-        if (empty($sliderSlides)) {
-            $sliderSlides = array_map(
-                fn($src) => ['image' => null, 'src' => $src, 'link' => null],
-                self::SLIDER_DEFAULTS
-            );
-        }
 
         return view('admin.settings.index', compact('settings', 'products', 'sliderSlides'));
     }

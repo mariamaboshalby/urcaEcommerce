@@ -325,10 +325,10 @@
                                     </p>
                                 </div>
                                 <div class="d-flex gap-2 flex-shrink-0">
-                                    <a href="tel:+201093803270" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                    <a href="tel:+201067596149" class="btn btn-sm btn-outline-primary rounded-pill px-3">
                                         <i class="fas fa-phone me-1"></i>{{ app()->getLocale() === 'ar' ? 'اتصل' : 'Call' }}
                                     </a>
-                                    <a href="https://wa.me/201093803270" target="_blank"
+                                    <a href="https://wa.me/201067596149" target="_blank"
                                         class="btn btn-sm btn-success rounded-pill px-3">
                                         <i class="fab fa-whatsapp me-1"></i>WhatsApp
                                     </a>
@@ -445,7 +445,7 @@
                     </div>
 
                     <div class="modal-footer border-0 px-4 py-3" style="background:#f8fafc;">
-                        <a href="https://wa.me/201093803270" target="_blank" class="btn btn-success rounded-pill px-4">
+                        <a href="https://wa.me/201067596149" target="_blank" class="btn btn-success rounded-pill px-4">
                             <i class="fab fa-whatsapp me-1"></i>
                             {{ app()->getLocale() === 'ar' ? 'تواصل معنا' : 'Contact Us' }}
                         </a>

@@ -163,19 +163,9 @@ class HomeController extends Controller
             return Setting::pluck('value', 'key')->toArray();
         });
 
-        // Slider slides (dynamic ordered list from admin settings, with static defaults fallback).
-        // Each slide: image (custom upload) OR src (default asset); the front-end CSS handles responsive cropping.
-        $defaultSrcs = [
-            'images/slider-1.webp',
-            'images/slider-2.webp',
-            'images/slider-3.webp',
-            'images/slider-4.webp',
-            'images/slider-5.webp',
-        ];
+        // Slider slides (dynamic ordered list from admin settings).
+        // If nothing is configured in admin, no slides are rendered on the front-end.
         $storedSlides = json_decode($settings['slider_images'] ?? '[]', true) ?: [];
-        if (empty($storedSlides)) {
-            $storedSlides = array_map(fn($src) => ['image' => null, 'src' => $src, 'link' => null], $defaultSrcs);
-        }
         $slides = [];
         foreach ($storedSlides as $s) {
             $image = $s['image'] ?? null;
@@ -193,9 +183,6 @@ class HomeController extends Controller
                 'width'  => 1600,
                 'height' => 800,
             ];
-        }
-        if (empty($slides)) {
-            $slides = array_map(fn($src) => ['image' => asset($src), 'link' => null, 'width' => 1600, 'height' => 800], $defaultSrcs);
         }
 
         // Deal of the Day (cached 30 mins)

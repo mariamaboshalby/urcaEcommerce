@@ -93,11 +93,9 @@
         <!-- Logo -->
         <div class="adm-sidebar-head">
             <a href="{{ route('admin.dashboard') }}" class="adm-logo">
-                <img src="{{ asset('images/urca_logo.png') }}" alt="urca" class="adm-logo-img"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
-                <span style="display:none;align-items:center;gap:6px;font-weight:900;font-size:1rem;color:#030f1f;">
-                    <i class="fas fa-tv" style="color:#051836;"></i> ميلاد<span style="color:#051836;">سامي</span>
-                </span>
+                <img src="{{ asset('images/urca-logo.png') }}" alt="urca" class="adm-logo-img"
+                    onerror="this.style.display='none'">
+                <span class="adm-logo-text">urca</span>
             </a>
             <button class="adm-sidebar-close" id="admSidebarClose">
                 <i class="fas fa-times"></i>

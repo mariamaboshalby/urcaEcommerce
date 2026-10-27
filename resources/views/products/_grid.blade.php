@@ -15,7 +15,7 @@
 @if(count($products) > 0)
 <div class="row g-3">
     @foreach($products as $index => $product)
-    <div class="col-md-6 col-xl-4">
+    <div class="col-6 col-md-4 prod-col">
         <a href="{{ route('products.show', $product['id']) }}"
            class="product-card card border-0 shadow-sm h-100 text-decoration-none">
 
@@ -79,12 +79,12 @@
                 </div>
 
                 {{-- Actions --}}
-                <div class="d-grid gap-2" style="grid-template-columns:1fr auto;">
-                    <button class="btn btn-primary btn-sm fw-semibold"
+                <div class="prod-actions">
+                    <button class="btn btn-primary btn-sm fw-semibold prod-cart-btn"
                             onclick="event.preventDefault();event.stopPropagation();addToCart({{ $product['id'] }}, '{{ addslashes($product['name']) }}', {{ $product['price'] }}, '{{ $product['image'] }}')">
-                        <i class="fas fa-shopping-cart me-1"></i>{{ __('app.prod_add_cart') }}
+                        <i class="fas fa-cart-shopping"></i><span class="prod-cart-label">{{ __('app.prod_add_cart') }}</span>
                     </button>
-                    <button class="btn btn-outline-secondary btn-sm"
+                    <button class="btn btn-outline-secondary btn-sm prod-view-btn"
                             onclick="event.preventDefault();event.stopPropagation();window.location='{{ route('products.show', $product['id']) }}'">
                         <i class="fas fa-eye"></i>
                     </button>

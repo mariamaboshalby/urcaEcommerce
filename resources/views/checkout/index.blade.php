@@ -67,7 +67,7 @@
                                 <div class="col-sm-6">
                                     <label class="form-label fw-semibold small">{{ __('app.checkout_city') }}</label>
                                     <input type="text" name="city"
-                                        value="{{ old('city', $user->city ?? 'Mansoura') }}" class="form-control rounded-3"
+                                        value="{{ old('city', $user->city ?? 'Samannoud') }}" class="form-control rounded-3"
                                         required>
                                 </div>
                                 <div class="col-sm-6">

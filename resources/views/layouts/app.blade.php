@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'urca - متجر إلكترونيات وإكسسوارات كمبيوتر')</title>
-    <meta name="description" content="@yield('description', 'urca - وجهتك الأولى لأفضل الإلكترونيات، ماوسات، سماعات، طابعات، فلاشات وملحقات الكمبيوتر في مصر. جودة أصلية وأفضل أسعار.')">
+    <title>@yield('title', 'urca - برمجيات ERP وحلول التحول الرقمي والهاردوير')</title>
+    <meta name="description" content="@yield('description', 'urca - شركة متخصصة في بيع برمجيات أنظمة تخطيط الموارد المؤسسية (ERP) وحلول التحول الرقمي وأجهزة الهاردوير والملحقات التقنية للشركات والمؤسسات في مصر.')">
 
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
@@ -143,8 +143,7 @@
                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                     <div style="display:none;align-items:center;gap:8px;">
                         <i class="fas fa-tv" style="font-size:1.75rem;color:#051836;"></i>
-                        <span style="font-size:1.1rem;font-weight:900;color:#0F172A;letter-spacing:-.02em;">ميلاد<span
-                                style="color:#051836;">سامي</span></span>
+                        <span style="font-size:1.1rem;font-weight:900;color:#0F172A;letter-spacing:-.02em;">urca</span>
                     </div>
                 </a>
                 <!-- Nav Links desktop -->
@@ -384,12 +383,11 @@
 
                     <!-- Brand -->
                     <div class="col-lg-4">
-                        <img src="{{ asset('images/urca-logo.png') }}" alt="urca" class="urca-footer-logo mb-3"
-                            width="140" height="40" loading="lazy" decoding="async"
-                            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="d-none align-items-center gap-2 mb-3">
-                            <i class="fas fa-tv fa-2x text-primary"></i>
-                            <span class="text-white fw-bold fs-5">urca<span class="text-primary">سامي</span></span>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <img src="{{ asset('images/urca-logo.png') }}" alt="urca" class="urca-footer-logo"
+                                loading="lazy" decoding="async"
+                                onerror="this.style.display='none'">
+                            <span class="text-white fw-bold" style="font-size:1.5rem;letter-spacing:.5px;">urca</span>
                         </div>
                         <p class="text-secondary small lh-lg">{{ __('app.footer_tagline') }}</p>
                         <div class="d-flex gap-2 mt-3">
@@ -398,20 +396,20 @@
                                 title="تابعنا على Facebook">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.instagram.com/urcasami.tv/" target="_blank"
+                            <a href="https://www.instagram.com/urca.tv/" target="_blank"
                                 rel="noopener noreferrer" class="urca-footer-social" aria-label="Instagram"
                                 title="تابعنا على Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="https://wa.me/201093803270" target="_blank" rel="noopener noreferrer"
+                            <a href="https://wa.me/201067596149" target="_blank" rel="noopener noreferrer"
                                 class="urca-footer-social" aria-label="WhatsApp" title="راسلنا على WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
-                            <a href="tel:+201093803270" class="urca-footer-social" aria-label="Phone"
+                            <a href="tel:+201067596149" class="urca-footer-social" aria-label="Phone"
                                 title="اتصل بنا">
                                 <i class="fas fa-phone-alt"></i>
                             </a>
-                            <a href="https://www.youtube.com/@urcasami-tv" target="_blank" rel="noopener noreferrer"
+                            <a href="https://www.youtube.com/@urca-tv" target="_blank" rel="noopener noreferrer"
                                 class="urca-footer-social" aria-label="YouTube" title="قناتنا على YouTube">
                                 <i class="fab fa-youtube"></i>
                             </a>
@@ -457,17 +455,17 @@
                             <li><i class="fas fa-map-marker-alt text-primary"></i>{{ __('app.footer_address') }}</li>
                             <li>
                                 <i class="fas fa-phone-alt text-primary"></i>
-                                <a href="tel:+201093803270" class="text-decoration-none" style="color:inherit;">+20
-                                    10 93803270</a>
+                                <a href="tel:+201067596149" class="text-decoration-none" style="color:inherit;">+20
+                                    10 67596149</a>
                             </li>
                             <li>
                                 <i class="fas fa-envelope text-primary"></i>
-                                <a href="mailto:urcasami.tv@gmail.com" class="text-decoration-none"
-                                    style="color:inherit;">urcasami.tv@gmail.com</a>
+                                <a href="mailto:urcaerp@gmail.com" class="text-decoration-none"
+                                    style="color:inherit;">urcaerp@gmail.com</a>
                             </li>
                             <li><i class="fas fa-clock text-primary"></i>{{ __('app.footer_hours') }}</li>
                         </ul>
-                        <a href="https://www.google.com/maps/place/30%C2%B056'37.3%22N+31%C2%B017'22.0%22E/@30.9436857,31.2894227,21z"
+                        <a href="https://www.google.com/maps/place/30%C2%B057'38.2%22N+31%C2%B014'40.3%22E/@30.9607368,31.2447841,17z"
                             target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mb-3"
                             style="background:rgba(5,24,54,.1);color:#051836;border-radius:8px;font-weight:600;transition:all .3s ease;"
                             onmouseover="this.style.background='#051836';this.style.color='#fff';"

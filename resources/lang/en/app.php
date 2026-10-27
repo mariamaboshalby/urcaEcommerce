@@ -17,6 +17,7 @@ return [
     'nav_search'      => 'Search products...',
   'track_order'     => 'Track Order',
     // ── Mega Menu ───────────────────────────────────────────────────────────
+    'prod_browse'     => 'Browse Products',
     'cat_all'         => 'All Products',
     'cat_printers'    => 'Printers',
     'cat_mice'        => 'Mice',
@@ -50,16 +51,16 @@ return [
     'total'           => 'Total:',
 
     // ── Footer ──────────────────────────────────────────────────────────────
-    'footer_tagline'  => 'An Egyptian brand with a global mindset. Since 2017, we\'ve been delivering world-class printers and tech accessories to businesses and individuals across Egypt.',
+    'footer_tagline'  => 'A specialist provider of ERP (Enterprise Resource Planning) software, digital-transformation solutions, and hardware & tech accessories. We help businesses and organizations across Egypt automate their finance, inventory, sales, and HR operations through integrated, world-class platforms — backed by the right hardware and expert support that powers efficiency and confident growth.',
     'quick_links'     => 'Quick Links',
     'categories'      => 'Categories',
     'get_in_touch'    => 'Get in Touch',
     'newsletter'      => 'Newsletter',
     'newsletter_ph'   => 'Your email address',
-    'footer_address'  => 'Al Galaa St, Mansoura, Egypt 7650001',
+    'footer_address'  => 'El Nahhas Square, Samannoud, Egypt 7650001',
     'footer_hours'    => 'Sat - Thu: 9AM - 9PM',
-    'footer_copy'     => '© :year MJK Technology. All rights reserved.',
-    'rights'          => 'crafted by Urca team ',
+    'footer_copy'     => '© :year urca. All rights reserved.',
+    'rights'          => 'crafted by urca team',
 
     // ── Bottom Nav ──────────────────────────────────────────────────────────
     'bn_home'         => 'Home',
@@ -75,15 +76,15 @@ return [
 
     // ── Home — About Section ─────────────────────────────────────────────────
     'home_about_badge'      => 'About Us',
-    'home_about_title'      => 'An Egyptian Brand with a Global Mindset',
-    'home_about_p1'         => 'Founded in <strong>2017</strong>, MJK was built on a simple belief — that Egyptian businesses and individuals deserve world-class tech products without compromise. From day one, we\'ve combined local expertise with a global standard of quality.',
-    'home_about_p2'         => 'We specialise in printers, accessories, and tech solutions from the world\'s leading brands, backed by expert support and a commitment to excellence that goes beyond the sale.',
+    'home_about_title'      => 'Your Specialist Partner in ERP Software & Tech Solutions',
+    'home_about_p1'         => 'We are a specialist provider of ERP (Enterprise Resource Planning) software and digital-transformation solutions, along with hardware and tech accessories. We help businesses and organizations across Egypt automate their finance, inventory, sales, and HR operations through integrated, world-class platforms.',
+    'home_about_p2'         => 'We also supply high-quality hardware and tech accessories with genuine warranties, backed by expert support that guides you every step of the way and powers efficient, confident growth.',
     'home_about_btn'        => 'Learn More',
     'home_stat_products'    => 'Products Available',
     'home_stat_customers'   => 'Happy Customers',
-    'home_stat_years'       => 'Years Since 2017',
+    'home_stat_years'       => 'Years of Experience',
     'home_stat_support'     => 'Technical Support',
-    'home_est_location'     => 'Mansoura, Egypt',
+    'home_est_location'     => 'Samannoud, Egypt',
     'home_values_title'     => 'Our Core Values',
     'home_values_sub'       => 'The principles that drive everything we do',
     'home_val_quality'      => 'Quality',
@@ -99,15 +100,15 @@ return [
     'home_prod_badge'       => 'Our Products',
     'home_prod_title'       => 'Built Different.',
     'home_prod_title_span'  => 'Engineered to Last.',
-    'home_prod_sub'         => 'From gaming peripherals to enterprise networking — every product carries the MJK standard.',
+    'home_prod_sub'         => 'ERP software, digital solutions, and carefully selected hardware — everything your business needs to run efficiently, from urca.',
     'home_prod_tag_ctrl'    => 'Controllers',
-    'home_prod_gamepad'     => 'MJK Premium Gamepad',
+    'home_prod_gamepad'     => 'urca Premium Gamepad',
     'home_prod_tag_mice'    => 'Gaming Mice',
-    'home_prod_mouse'       => 'MJK Pro Wireless',
+    'home_prod_mouse'       => 'urca Pro Wireless',
     'home_prod_tag_scan'    => 'Scanners',
-    'home_prod_scanner'     => 'MJK Barcode Pro',
+    'home_prod_scanner'     => 'urca Barcode Pro',
     'home_prod_tag_net'     => 'Networking',
-    'home_prod_switch'      => 'MJK PoE Switch — 4GE+2GE+1SFP',
+    'home_prod_switch'      => 'urca PoE Switch — 4GE+2GE+1SFP',
     'home_prod_browse'      => 'Browse All Products',
 
     // ── Home — Blog Section ──────────────────────────────────────────────────
@@ -121,8 +122,8 @@ return [
     // ── Home — Contact Section ───────────────────────────────────────────────
     'home_contact_badge'    => 'Contact Us',
     'home_contact_title'    => 'We\'d Love to Hear From You',
-    'home_contact_sub'      => 'Visit us in Mansoura, drop us a message, or just say hello.',
-    'home_contact_address'  => 'Al Galaa St, Mansoura',
+    'home_contact_sub'      => 'Visit us in Samannoud, drop us a message, or just say hello.',
+    'home_contact_address'  => 'El Nahhas Square, Samannoud',
     'home_contact_whatsapp' => 'WhatsApp',
     'home_contact_form_title' => 'Send Us a Message',
     'home_contact_form_sub' => 'We\'ll get back to you as soon as possible.',
@@ -145,7 +146,7 @@ return [
     'about_cta_call'    => 'Call Us',
 
     // ── Products Index ───────────────────────────────────────────────────────
-    'prod_page_title'       => 'Products - MJK',
+    'prod_page_title'       => 'Products - urca',
     'prod_header_title'     => 'Products',
     'prod_breadcrumb_home'  => 'Home',
     'prod_filter_btn'       => 'Filter Products',
@@ -417,7 +418,6 @@ return [
     'order_confirmed_title' => 'Order Confirmed!',
     'order_confirmed_sub'   => 'Thank you for your order. We\'ll be in touch shortly.',
     'order_number_label'    => 'Order',
-    'order_details'         => 'Order Details',
     'order_confirm_email_note' => 'A confirmation will be sent to',
     'order_confirm_phone_note' => 'Our team will call you at',
     'back_to_home'          => 'Back to Home',
@@ -522,5 +522,13 @@ return [
     'home_testimonial_submit'       => 'Submit Review',
     'home_testimonial_success'      => 'Thank you! Your review has been submitted and will be reviewed soon.',
     'home_testimonial_error'        => 'Something went wrong. Please try again.',
-    
+
+    // ── Ported keys (were only in the legacy tree) ───────────────────────────
+    'no_categories'         => 'No categories available',
+    'cover_image'           => 'Cover Image',
+    'remove_image'          => 'Remove Current Image',
+    'upload_new_to_replace' => 'Or upload a new image to replace',
+    'drag_image'            => 'Drag image here or',
+    'upload_limit_single'   => 'JPG, PNG, WEBP — max 2MB',
+
 ];

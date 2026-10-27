@@ -2,9 +2,9 @@
 
 ## الموقع / Location
 **الإحداثيات / Coordinates:**
-- Latitude: 30.943686
-- Longitude: 31.289423
-- العنوان / Address: شبين الكوم، المنوفية، مصر
+- Latitude: 30.9607368
+- Longitude: 31.2447841
+- العنوان / Address: ميدان النحاس، سمنود، مصر
 
 ## الخريطة المضافة / Maps Added
 
@@ -44,7 +44,7 @@
 
 ```html
 <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d714.1338338154081!2d31.28942265912146!3d30.94368566303161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sar!2seg!4v1783340972314!5m2!1sar!2seg" 
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d504.2140054901909!2d31.24478412742299!3d30.960736765241094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDU3JzM4LjIiTiAzMcKwMTQnNDAuMyJF!5e1!3m2!1sar!2seg!4v1793099644571!5m2!1sar!2seg" 
     width="100%" 
     height="450" 
     style="border:0;border-radius:16px;" 
@@ -58,12 +58,12 @@
 
 ### رابط الموقع على الخريطة / Direct Map Link
 ```
-https://www.google.com/maps/place/30%C2%B056'37.3%22N+31%C2%B017'22.0%22E/@30.9436857,31.2894227,21z
+https://www.google.com/maps/place/30%C2%B057'38.2%22N+31%C2%B014'40.3%22E/@30.9607368,31.2447841,17z
 ```
 
 ### رابط الاتجاهات / Directions Link
 ```
-https://www.google.com/maps/dir//30.943686,31.289423
+https://www.google.com/maps/dir//30.9607368,31.2447841
 ```
 
 ### رابط مشاركة الموقع / Share Location Link
@@ -108,12 +108,12 @@ height: 450px; /* غير القيمة كما تريد / Change value as needed *
 استخدم Google Maps JavaScript API للحصول على تحكم أكبر:
 ```javascript
 const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 30.943686, lng: 31.289423 },
+    center: { lat: 30.9607368, lng: 31.2447841 },
     zoom: 15,
 });
 
 const marker = new google.maps.Marker({
-    position: { lat: 30.943686, lng: 31.289423 },
+    position: { lat: 30.9607368, lng: 31.2447841 },
     map: map,
     title: "urca - قطع غيار شاشات التلفزيون"
 });
@@ -124,7 +124,7 @@ const marker = new google.maps.Marker({
 | النوع / Type | القيمة / Value |
 |--------------|----------------|
 | الهاتف / Phone | +20 10 01324539 |
-| البريد / Email | urcasami.tv@gmail.com |
+| البريد / Email | urcaerp@gmail.com |
 | العنوان / Address | {{ __('app.footer_address') }} |
 | أوقات العمل / Hours | {{ __('app.footer_hours') }} |
 

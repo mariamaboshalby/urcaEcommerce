@@ -132,8 +132,8 @@
                             <div>
                                 <h5 class="fw-bold mb-1" style="color:#0f172a;">
                                     {{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call Us' }}</h5>
-                                <a href="tel:+201093803270" class="text-primary text-decoration-none fw-semibold">+20 10
-                                    93803270</a>
+                                <a href="tel:+201067596149" class="text-primary text-decoration-none fw-semibold">+20 10
+                                    67596149</a>
                             </div>
                         </div>
                         <div class="d-flex align-items-start gap-3">
@@ -150,12 +150,12 @@
                         </div>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="https://www.google.com/maps/place/30%C2%B056'37.3%22N+31%C2%B017'22.0%22E/@30.9436857,31.2894227,21z"
+                        <a href="https://www.google.com/maps/place/30%C2%B057'38.2%22N+31%C2%B014'40.3%22E/@30.9607368,31.2447841,17z"
                             target="_blank" class="btn btn-primary">
                             <i
                                 class="fas fa-directions me-2"></i>{{ app()->getLocale() === 'ar' ? 'احصل على الاتجاهات' : 'Get Directions' }}
                         </a>
-                        <a href="https://wa.me/201093803270" target="_blank" class="btn btn-outline-primary">
+                        <a href="https://wa.me/201067596149" target="_blank" class="btn btn-outline-primary">
                             <i class="fab fa-whatsapp me-2"></i>WhatsApp
                         </a>
                     </div>
@@ -179,10 +179,10 @@
             <h2 class="text-white fw-bold mb-3" style="font-size:2.5rem;">{{ __('app.about_cta_title') }}</h2>
             <p class="mb-4" style="color:rgba(255,255,255,.9);font-size:1.25rem;">{{ __('app.about_cta_sub') }}</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="tel:+201093803270" class="btn btn-light btn-lg px-5 fw-bold">
+                <a href="tel:+201067596149" class="btn btn-light btn-lg px-5 fw-bold">
                     <i class="fas fa-phone-alt me-2"></i>{{ __('app.about_cta_call') }}
                 </a>
-                <a href="https://wa.me/201093803270" class="btn btn-outline-light btn-lg px-5 fw-bold">
+                <a href="https://wa.me/201067596149" class="btn btn-outline-light btn-lg px-5 fw-bold">
                     <i class="fab fa-whatsapp me-2"></i>WhatsApp
                 </a>
             </div>

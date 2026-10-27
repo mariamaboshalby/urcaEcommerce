@@ -72,7 +72,7 @@
                                 <label class="form-label fw-semibold small">المدينة <span
                                         class="text-muted">(اختياري)</span></label>
                                 <input type="text" name="city" value="{{ old('city') }}"
-                                    class="form-control rounded-3" placeholder="مثال: المنصورة">
+                                    class="form-control rounded-3" placeholder="مثال: سمنود">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label fw-semibold small">كلمة المرور</label>

@@ -6,7 +6,7 @@
 
 {{-- Page Header --}}
 <div style="background:linear-gradient(135deg,#0f172a 0%,#030f1f 100%);padding:2.5rem 0;">
-    <div class="container">
+    <div class="container-fluid px-3 px-lg-4" style="max-width:1680px;margin-inline:auto;">
         <h1 class="text-white fw-bold mb-1">{{ __('app.prod_header_title') }}</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
@@ -20,7 +20,7 @@
 </div>
 
 <section class="py-5 bg-light">
-    <div class="container">
+    <div class="container-fluid px-3 px-lg-4" style="max-width:1680px;margin-inline:auto;">
         <div class="row g-4">
 
             {{-- Sidebar --}}
@@ -272,6 +272,51 @@
     line-height: 1.6;
 }
 .d-grid { display: grid; }
+
+/* ── Products per row: 2 (mobile) / 3 (md) / 4 (lg) / 5 (xl+) ── */
+@media (min-width: 992px) {
+    .products-live .row > .prod-col { flex: 0 0 25%; max-width: 25%; }
+}
+@media (min-width: 1200px) {
+    .products-live .row > .prod-col { flex: 0 0 20%; max-width: 20%; }
+}
+
+/* ── Card action buttons ── */
+.prod-actions {
+    display: flex;
+    align-items: stretch;
+    gap: .4rem;
+}
+.prod-cart-btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    padding: .45rem .6rem;
+    font-size: .82rem;
+    line-height: 1.1;
+    border-radius: 10px;
+}
+.prod-cart-btn .fa-cart-shopping {
+    flex-shrink: 0;
+    font-size: .85rem;
+}
+.prod-cart-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.prod-view-btn {
+    flex: 0 0 auto;
+    width: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
 
 /* ── Fav button ── */
 .fav-btn {

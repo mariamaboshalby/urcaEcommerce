@@ -6,12 +6,12 @@
 ### الهاتف / Phone Numbers
 | النوع / Type | الرقم / Number | الرابط / Link |
 |--------------|----------------|---------------|
-| الهاتف الأساسي / Primary | +20 10 93803270 | `tel:+201093803270` |
-| WhatsApp | +20 10 93803270 | `https://wa.me/201093803270` |
+| الهاتف الأساسي / Primary | +20 10 67596149 | `tel:+201067596149` |
+| WhatsApp | +20 10 67596149 | `https://wa.me/201067596149` |
 
 ### البريد الإلكتروني / Email
-- **Email:** urcasami.tv@gmail.com
-- **Link:** `mailto:urcasami.tv@gmail.com`
+- **Email:** urcaerp@gmail.com
+- **Link:** `mailto:urcaerp@gmail.com`
 
 ---
 
@@ -23,16 +23,16 @@
 - **Page ID:** 181WTrqgHu
 
 ### Instagram
-- **Profile:** https://www.instagram.com/urcasami.tv/
-- **Username:** @urcasami.tv
+- **Profile:** https://www.instagram.com/urca.tv/
+- **Username:** @urca.tv
 
 ### YouTube
-- **Channel:** https://www.youtube.com/@urcasami-tv
-- **Handle:** @urcasami-tv
+- **Channel:** https://www.youtube.com/@urca-tv
+- **Handle:** @urca-tv
 
 ### WhatsApp Business
-- **Direct Chat:** https://wa.me/201093803270
-- **Message with Text:** `https://wa.me/201093803270?text=مرحباً`
+- **Direct Chat:** https://wa.me/201067596149
+- **Message with Text:** `https://wa.me/201067596149?text=مرحباً`
 
 ---
 
@@ -47,7 +47,7 @@
 - ✅ رابط WhatsApp برقم صحيح
 - ✅ رابط YouTube
 - ✅ زر اتصال مباشر
-- ✅ تحديث رقم الهاتف إلى +20 10 93803270
+- ✅ تحديث رقم الهاتف إلى +20 10 67596149
 - ✅ إضافة `target="_blank"` و `rel="noopener noreferrer"`
 - ✅ إضافة tooltips بالعربية
 
@@ -108,7 +108,7 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 
 ### WhatsApp
 ```html
-<a href="https://wa.me/201093803270" 
+<a href="https://wa.me/201067596149" 
    target="_blank" 
    rel="noopener noreferrer">
     <i class="fab fa-whatsapp"></i>
@@ -117,14 +117,14 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 
 ### Phone
 ```html
-<a href="tel:+201093803270">
+<a href="tel:+201067596149">
     <i class="fas fa-phone-alt"></i>
 </a>
 ```
 
 ### Instagram
 ```html
-<a href="https://www.instagram.com/urcasami.tv/" 
+<a href="https://www.instagram.com/urca.tv/" 
    target="_blank" 
    rel="noopener noreferrer">
     <i class="fab fa-instagram"></i>
@@ -133,7 +133,7 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 
 ### YouTube
 ```html
-<a href="https://www.youtube.com/@urcasami-tv" 
+<a href="https://www.youtube.com/@urca-tv" 
    target="_blank" 
    rel="noopener noreferrer">
     <i class="fab fa-youtube"></i>
@@ -187,12 +187,12 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 يمكنك اختبار الروابط:
 
 ### WhatsApp Test:
-1. افتح: https://wa.me/201093803270
+1. افتح: https://wa.me/201067596149
 2. يجب أن يفتح WhatsApp مباشرة
 3. الرسالة جاهزة للإرسال
 
 ### Phone Test:
-1. انقر على: +20 10 93803270
+1. انقر على: +20 10 67596149
 2. يجب أن يفتح تطبيق الهاتف
 3. الرقم جاهز للاتصال
 
@@ -236,12 +236,12 @@ Messenger: linear-gradient(135deg, #0084FF 0%, #0066CC 100%)
 - Saturday - Thursday: 9 AM - 6 PM
 
 ### العنوان / Address
-- شبين الكوم، المنوفية، مصر
-- Shibin El Kom, Menoufia, Egypt
+- ميدان النحاس، سمنود، مصر
+- El Nahhas Square, Samannoud, Egypt
 
 ### الموقع على الخريطة / Map Location
-- Coordinates: 30.943686, 31.289423
-- Google Maps: https://www.google.com/maps/place/30%C2%B056'37.3%22N+31%C2%B017'22.0%22E/@30.9436857,31.2894227,21z
+- Coordinates: 30.9607368, 31.2447841
+- Google Maps: https://www.google.com/maps/place/30%C2%B057'38.2%22N+31%C2%B014'40.3%22E/@30.9607368,31.2447841,17z
 
 ---
 

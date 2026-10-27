@@ -1225,10 +1225,13 @@ body {
 .urca-footer-top { padding: 4rem 0 2.5rem; }
 
 .urca-footer-logo {
-  height: 44px;
-  width: auto;
+  height: 48px;
+  width: 48px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
 }
 
 .urca-footer-heading {

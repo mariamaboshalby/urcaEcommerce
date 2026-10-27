@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('title',
     app()->getLocale() === 'ar'
-    ? 'urca - متجر إلكترونيات وملحقات الكمبيوتر'
-    : 'urca Sami - Electronics & Computer Accessories')
+    ? 'urca - برمجيات ERP وحلول التحول الرقمي والهاردوير'
+    : 'urca - ERP Software & Digital Transformation Solutions')
 
     @push('styles')
         {{-- Preload the LCP hero image --}}
+        @if(!empty($slides))
         <link rel="preload" as="image" href="{{ $slides[0]['image'] }}">
+        @endif
     @endpush
     @push('styles')
         <style>
@@ -264,6 +266,7 @@
     </script>
 
     {{-- ===== Hero Carousel ===== --}}
+    @if(!empty($slides))
     <div class="container-fluid pt-3 pb-2 px-0">
         <div class="mx-auto rounded-4 overflow-hidden shadow-lg" style="width: 92%; max-width: none;">
             <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
@@ -281,7 +284,7 @@
                             @endif
                             <img src="{{ $slide['image'] }}" class="d-block w-100 hero-img" decoding="async"
                                 width="{{ $slide['width'] }}" height="{{ $slide['height'] }}" onerror="productImgFallback(this)"
-                                @if($index === 0) fetchpriority="high" loading="eager" alt="urca - متجر الإلكترونيات والملحقات"
+                                @if($index === 0) fetchpriority="high" loading="eager" alt="urca - برمجيات ERP وحلول تقنية وهاردوير"
                                 @else loading="lazy" alt="Slide {{ $index + 1 }}" @endif>
                             @if(!empty($slide['link']))
                                 </a>
@@ -299,6 +302,8 @@
                 </button>
             </div>
         </div>
+    </div>
+    @endif
 
         {{-- ===== About Us Section ===== --}}
         <section class="py-5 bg-white">
@@ -311,12 +316,12 @@
                     <div class="col-lg-6 order-2 order-lg-1">
                         <span
                             class="badge text-bg-primary rounded-pill px-3 py-2 mb-3 fs-6">{{ __('app.home_about_badge') }}</span>
-                        {{-- <h2 class="fw-bold display-6 mb-3">{{ __('app.home_about_title') }}</h2>
-                    <p class="text-secondary fs-5 lh-lg">{!! __('app.home_about_p1') !!}</p>
-                    <p class="text-secondary fs-5 lh-lg">{{ __('app.home_about_p2') }}</p>
-                    <a href="{{ route('about.index') }}" class="btn btn-primary btn-lg mt-2 mb-4">
-                        <i class="fas fa-arrow-right me-2"></i> {{ __('app.home_about_btn') }}
-                    </a> --}}
+                        <h2 class="fw-bold display-6 mb-3">{{ __('app.home_about_title') }}</h2>
+                        <p class="text-secondary fs-5 lh-lg">{!! __('app.home_about_p1') !!}</p>
+                        <p class="text-secondary fs-5 lh-lg">{{ __('app.home_about_p2') }}</p>
+                        <a href="{{ route('about.index') }}" class="btn btn-primary btn-lg mt-2 mb-4">
+                            <i class="fas fa-arrow-right me-2"></i> {{ __('app.home_about_btn') }}
+                        </a>
 
                         {{-- Stats row under the text --}}
                         <div class="row g-3 mt-1">
@@ -1256,10 +1261,10 @@
                                     <i
                                         class="fas fa-map-marker-alt text-primary me-1"></i>{{ __('app.home_contact_address') }}
                                 </span>
-                                <a href="tel:+201093803270" class="small text-secondary text-decoration-none">
-                                    <i class="fas fa-phone-alt text-primary me-1"></i>+20 123 456 7890
+                                <a href="tel:+201067596149" class="small text-secondary text-decoration-none">
+                                    <i class="fas fa-phone-alt text-primary me-1"></i>+20 10 67596149
                                 </a>
-                                <a href="https://wa.me/201093803270" target="_blank"
+                                <a href="https://wa.me/201067596149" target="_blank"
                                     class="small text-secondary text-decoration-none">
                                     <i
                                         class="fab fa-whatsapp text-primary me-1"></i>{{ __('app.home_contact_whatsapp') }}
@@ -1322,13 +1327,13 @@
                                 <p style="margin-top:.75rem;color:#051836;font-weight:700;">
                                     {{ app()->getLocale() === 'ar' ? 'اضغط لعرض الخريطة' : 'Click to show map' }}</p>
                                 <p style="font-size:.8rem;color:#475569;margin:0;">
-                                    {{ app()->getLocale() === 'ar' ? 'المنصورة، مصر' : 'Mansoura, Egypt' }}</p>
+                                    {{ app()->getLocale() === 'ar' ? 'سمنود، مصر' : 'Samannoud, Egypt' }}</p>
                             </div>
                             <iframe id="googleMap"
-                                data-src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d792.201006963661!2d31.307853230395082!3d30.088475194083156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1779698431846!5m2!1sen!2seg"
+                                data-src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d504.2140054901909!2d31.24478412742299!3d30.960736765241094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDU3JzM4LjIiTiAzMcKwMTQnNDAuMyJF!5e1!3m2!1sar!2seg!4v1793099644571!5m2!1sar!2seg"
                                 width="100%" height="100%" style="border:0;min-height:400px;display:none;"
                                 allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"
-                                title="urca - المنصورة، مصر"></iframe>
+                                title="urca - سمنود، مصر"></iframe>
                         </div>
                     </div>
 
@@ -1358,7 +1363,7 @@
                         'Message:\n' + message
                     );
 
-                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=urcasami.tv%40gmail.com&su=' +
+                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=urcaerp%40gmail.com&su=' +
                         gmailSubject +
                         '&body=' + gmailBody;
                     window.open(gmailUrl, '_blank');
